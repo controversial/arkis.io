@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "Website for Arkis",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-sass": "sass-lint 'app/**/*.sass' -v",
+    "lint-js": "eslint .",
+    "test": "npm run -s lint-sass && npm run -s lint-js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "eslint-plugin-react": "^6.9.0",
     "file-loader": "^0.9.0",
     "node-sass": "^4.2.0",
+    "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
