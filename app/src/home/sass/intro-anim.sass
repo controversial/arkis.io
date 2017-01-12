@@ -32,6 +32,7 @@ $color-light: #fff
 
   #corners
     cursor: pointer
+    animation: corners-blink .075s .1s 6 alternate
 
     .row
       white-space: nowrap
@@ -154,8 +155,6 @@ $color-light: #fff
       .corner.bottom.right div
         animation: bottomleft-scale-out .5s
         animation-fill-mode: forwards
-
-    animation: corners-blink .075s .1s 6 alternate
 
     &:active
       transform: scale(.95)
