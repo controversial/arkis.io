@@ -1,0 +1,328 @@
+$color-dark: #000
+$color-light: #fff
+
+*
+  box-sizing: border-box
+
+@font-face
+  font-family: Charter
+  font-style: normal
+  font-weight: bold
+  src: url('http://cdn.darrenshan.com/fonts/Charis-SIL/CharisSILB.ttf')
+
+
+.letter-main
+  color: $color-light
+  font-family: Charter
+  font-weight: bold
+  display: block
+  position: absolute
+  top: 50vh
+  left: 50vw
+  font-size: 50vh
+
+  @media (orientation: portrait)
+    font-size: 50vw
+
+  transform: translate(-50%, -52.5%)
+
+  pointer-events: none
+
+#corners-container
+  position: absolute
+  top: 50vh
+  left: 50vw
+  transform: translate(-50%, -50%)
+
+  #corners
+    cursor: pointer
+
+    .row
+      white-space: nowrap
+
+      .corner
+        $corner-stroke-width-landscape: 2vh
+        $corner-distance-landscape: 25vh
+
+        $corner-stroke-width-portrait: 2vw
+        $corner-distance-portrait: 25vw
+
+        display: inline-block
+
+        width: 15vh
+        height: 15vh
+
+        @media (orientation: portrait)
+          width: 15vw
+          height: 15vw
+
+        opacity: 0
+
+        div
+          width: inherit
+          height: inherit
+
+        &.top
+          margin-bottom: $corner-distance-landscape / 2
+
+          div
+            border-top: $corner-stroke-width-landscape solid $color-light
+
+        &.right
+          margin-left: $corner-distance-landscape / 2
+
+          div
+            border-right: $corner-stroke-width-landscape solid $color-light
+
+        &.bottom
+          margin-top: $corner-distance-landscape / 2
+
+          div
+            border-bottom: $corner-stroke-width-landscape solid $color-light
+
+        &.left
+          margin-right: $corner-distance-landscape / 2
+
+          div
+            border-left: $corner-stroke-width-landscape solid $color-light
+
+
+        @media (orientation: portrait)
+          &.top
+            margin-bottom: $corner-distance-portrait / 2
+
+            div
+              border-top: $corner-stroke-width-portrait solid $color-light
+
+          &.right
+            margin-left: $corner-distance-portrait / 2
+
+            div
+              border-right: $corner-stroke-width-portrait solid $color-light
+
+          &.bottom
+            border-bottom: $corner-stroke-width-portrait solid $color-light
+
+            div
+              margin-top: $corner-distance-portrait / 2
+
+          &.left
+            margin-right: $corner-distance-portrait / 2
+
+            div
+              border-left: $corner-stroke-width-portrait solid $color-light
+
+        $corner-in-easing: ease-out
+
+        &.top.left
+          animation: topleft-move-in-1 .5s 1s $corner-in-easing
+          animation-fill-mode: forwards
+
+          div
+            animation: topleft-scale-in .5s
+
+        &.top.right
+          animation: topright-move-in-2 .5s 1.25s $corner-in-easing
+          animation-fill-mode: forwards
+
+          div
+            animation: topright-scale-in .5s
+
+        &.bottom.right
+          animation: bottomright-move-in-3 .5s 1.5s $corner-in-easing
+          animation-fill-mode: forwards
+
+          div
+            animation: bottomright-scale-in .5s
+
+        &.bottom.left
+          animation: bottomleft-move-in-4 .5s 1.75s $corner-in-easing
+          animation-fill-mode: forwards
+
+          div
+            animation: bottomleft-scale-in .5s
+
+    &:hover
+      .corner.top.left div
+        animation: topleft-scale-out .5s
+        animation-fill-mode: forwards
+
+      .corner.top.right div
+        animation: topright-scale-out .5s
+        animation-fill-mode: forwards
+
+      .corner.bottom.left div
+        animation: bottomright-scale-out .5s
+        animation-fill-mode: forwards
+
+      .corner.bottom.right div
+        animation: bottomleft-scale-out .5s
+        animation-fill-mode: forwards
+
+    animation: corners-blink .075s .1s 6 alternate
+
+    &:active
+      transform: scale(.95)
+      animation: none
+
+#corners-anim-container-1
+  animation-fill-mode: forwards
+  animation: corners-spin-5 1s 2s ease, corners-spin-back-6 .75s 3s ease
+
+#corners-anim-container-2
+  opacity: 1
+  animation: corners-blink-8 .075s 5s alternate 6
+
+
+// Beginning build animations
+
+
+$corner-anim-distance: 25%
+
+@keyframes topleft-move-in-1
+  from
+    opacity: 0
+    transform: translate(-$corner-anim-distance, -$corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes topright-move-in-2
+  from
+    opacity: 0
+    transform: translate($corner-anim-distance, -$corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes bottomright-move-in-3
+  from
+    opacity: 0
+    transform: translate($corner-anim-distance, $corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes bottomleft-move-in-4
+  from
+    opacity: 0
+    transform: translate(-$corner-anim-distance, $corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes corners-spin-5
+  from
+    transform: none
+
+  to
+    transform: rotate(180deg)
+
+
+@keyframes corners-spin-back-6
+  from
+    transform: rotate(180deg)
+
+  to
+    transform: rotate(90deg)
+
+
+// Hover and click animations
+
+
+@keyframes topleft-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: translate(-25%, -25%)
+
+@keyframes topright-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: translate(25%, -25%)
+
+@keyframes bottomleft-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: translate(25%, 25%)
+
+@keyframes bottomright-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: translate(-25%, 25%)
+
+@keyframes topleft-scale-in
+  from
+    transform: translate(-25%, -25%)
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: none
+
+@keyframes topright-scale-in
+  from
+    transform: translate(25%, -25%)
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: none
+
+@keyframes bottomright-scale-in
+  from
+    transform: translate(25%, 25%)
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: none
+
+@keyframes bottomleft-scale-in
+  from
+    transform: translate(-25%, 25%)
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: none
+
+@keyframes corners-blink
+  from
+    opacity: 1
+
+  49%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  to
+    opacity: 0
