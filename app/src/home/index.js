@@ -1,3 +1,2 @@
-require('./sass/main.sass');
-
-console.log('hi');
+require('./main.sass');
+require('./intro-animation/intro-anim.js');
