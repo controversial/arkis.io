@@ -18,6 +18,11 @@ module.exports = {
         exclude: 'node_modules',
         query: { presets: ['es2015'] },
       },
+      {
+        test: /\.ttf$/,  // Matches common font extensions
+        loader: 'file',
+        query: { name: 'fonts/[name].[ext]' },
+      },
     ],
   },
 
