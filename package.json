@@ -1,0 +1,18 @@
+{
+  "name": "arkis.io",
+  "version": "0.0.0",
+  "description": "Website for Arkis",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkis/arkis.io.git"
+  },
+  "author": "Luke Deen Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arkis/arkis.io/issues"
+  },
+  "homepage": "https://github.com/arkis/arkis.io#readme"
+}
