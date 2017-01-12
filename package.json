@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Website for Arkis",
   "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "lint-sass": "sass-lint 'app/**/*.sass' -v",
     "lint-js": "eslint .",
     "test": "npm run -s lint-sass && npm run -s lint-js"
