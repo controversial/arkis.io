@@ -11,6 +11,12 @@ module.exports = {
         test: /\.sass$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: 'node_modules',
+        query: { presets: ['es2015'] },
+      },
     ],
   },
 
