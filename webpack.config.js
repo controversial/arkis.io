@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -25,6 +26,10 @@ module.exports = {
     publicPath: '/build/',
     filename: '[name].js',
   },
+
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({ minimize: true }),
+  ],
 
 
   // --------------------------------------------------------------------------
