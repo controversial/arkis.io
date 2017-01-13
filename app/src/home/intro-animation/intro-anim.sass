@@ -1,5 +1,8 @@
 @import '../main.sass'
 
+
+// The letter A in the logo.
+
 .letter-main
   color: $color-light
   font-family: Charter
@@ -17,6 +20,9 @@
 
   pointer-events: none
 
+// Contains the 'corners' around the letter.
+   Corners are nested within several wrapper divs to allow more flexible
+   stacking of animations.
 #corners-container
   position: absolute
   top: 50vh
@@ -25,9 +31,18 @@
 
   #corners
     cursor: pointer
+
+    // This animation is defined here so that the corners blink when :active is
+       removed from #corners (click released). Although this animation does play
+       when the page first loads, this is not visible because each corner has
+       opacity: 0 set individually. Thus, changing opacity of the parent div
+       will have no effect on the visibility of the corners. This animation is
+       completed by the time the
     animation: corners-blink .075s .1s 6 alternate
 
     .row
+      // Forces corners to stay aligned in a square instead of wrapping around
+         on small screens.
       white-space: nowrap
 
       .corner
