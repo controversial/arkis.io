@@ -46,17 +46,10 @@
       white-space: nowrap
 
       .corner
-        $corner-stroke-width-landscape: 2vh
-        $corner-distance-landscape: 25vh
-
-        $corner-stroke-width-portrait: 2vw
-        $corner-distance-portrait: 25vw
-
         display: inline-block
 
         width: 15vh
         height: 15vh
-
         @media (orientation: portrait)
           width: 15vw
           height: 15vw
@@ -66,6 +59,14 @@
         div
           width: inherit
           height: inherit
+
+
+        // Define size of and distance between the corners
+
+        // Landscape browser window
+
+        $corner-stroke-width-landscape: 2vh
+        $corner-distance-landscape: 25vh
 
         &.top
           margin-bottom: $corner-distance-landscape / 2
@@ -91,6 +92,10 @@
           div
             border-left: $corner-stroke-width-landscape solid $color-light
 
+        // Portrait browser window
+
+        $corner-stroke-width-portrait: 2vw
+        $corner-distance-portrait: 25vw
 
         @media (orientation: portrait)
           &.top
@@ -117,35 +122,39 @@
             div
               border-left: $corner-stroke-width-portrait solid $color-light
 
-        $corner-in-easing: ease-out
+
+        // Define corner build animations
 
         &.top.left
-          animation: topleft-move-in-1 .5s 1s $corner-in-easing
+          animation: topleft-move-in-1 .5s 1s ease-out
           animation-fill-mode: forwards
 
           div
             animation: topleft-scale-in .5s
 
         &.top.right
-          animation: topright-move-in-2 .5s 1.25s $corner-in-easing
+          animation: topright-move-in-2 .5s 1.25s ease-out
           animation-fill-mode: forwards
 
           div
             animation: topright-scale-in .5s
 
         &.bottom.right
-          animation: bottomright-move-in-3 .5s 1.5s $corner-in-easing
+          animation: bottomright-move-in-3 .5s 1.5s ease-out
           animation-fill-mode: forwards
 
           div
             animation: bottomright-scale-in .5s
 
         &.bottom.left
-          animation: bottomleft-move-in-4 .5s 1.75s $corner-in-easing
+          animation: bottomleft-move-in-4 .5s 1.75s ease-out
           animation-fill-mode: forwards
 
           div
             animation: bottomleft-scale-in .5s
+
+
+    // Logo hover effect
 
     &:hover
       .corner.top.left div
@@ -164,9 +173,16 @@
         animation: bottomleft-scale-out .5s
         animation-fill-mode: forwards
 
+
+    // Logo click effect. Only immediate effect is bring the corners slightly
+       closer together, but by specifying "animation: none" this ensures that
+       the blink animation will be replayed upon click release when it is
+       reapplied as the animation.
+
     &:active
       transform: scale(.95)
       animation: none
+
 
 #corners-anim-container-1
   animation-fill-mode: forwards
@@ -175,5 +191,6 @@
 #corners-anim-container-2
   opacity: 1
   animation: corners-blink-8 .075s 5s alternate 6
+
 
 @import intro-anim-keyframes
