@@ -1,0 +1,154 @@
+// Keyframe animations for intro animation
+
+
+// Beginning build animations
+
+$corner-anim-distance: 25%
+
+@keyframes topleft-move-in-1
+  from
+    opacity: 0
+    transform: translate(-$corner-anim-distance, -$corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes topright-move-in-2
+  from
+    opacity: 0
+    transform: translate($corner-anim-distance, -$corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes bottomright-move-in-3
+  from
+    opacity: 0
+    transform: translate($corner-anim-distance, $corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes bottomleft-move-in-4
+  from
+    opacity: 0
+    transform: translate(-$corner-anim-distance, $corner-anim-distance)
+
+  to
+    opacity: 1
+    transform: none
+
+@keyframes corners-spin-5
+  from
+    transform: none
+
+  to
+    transform: rotate(180deg)
+
+
+@keyframes corners-spin-back-6
+  from
+    transform: rotate(180deg)
+
+  to
+    transform: rotate(90deg)
+
+
+// Hover and click animations
+
+
+@keyframes topleft-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: translate(-25%, -25%)
+
+@keyframes topright-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: translate(25%, -25%)
+
+@keyframes bottomleft-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: translate(25%, 25%)
+
+@keyframes bottomright-scale-out
+  from
+    transform: none
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: translate(-25%, 25%)
+
+@keyframes topleft-scale-in
+  from
+    transform: translate(-25%, -25%)
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: none
+
+@keyframes topright-scale-in
+  from
+    transform: translate(25%, -25%)
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: none
+
+@keyframes bottomright-scale-in
+  from
+    transform: translate(25%, 25%)
+
+  50%
+    transform: translateX(25%)
+
+  to
+    transform: none
+
+@keyframes bottomleft-scale-in
+  from
+    transform: translate(-25%, 25%)
+
+  50%
+    transform: translateX(-25%)
+
+  to
+    transform: none
+
+@keyframes corners-blink
+  from
+    opacity: 1
+
+  49%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  to
+    opacity: 0
