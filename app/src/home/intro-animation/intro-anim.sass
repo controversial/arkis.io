@@ -183,6 +183,52 @@
       transform: scale(.95)
       animation: none
 
+    // Revise interactive animations for devices that can't hover (touch)
+    @media (hover: none)
+
+      // Remove click release effect
+      animation: none
+
+      // Remove hover effect
+
+      .corner.top.left div,
+      .corner.top.right div,
+      .corner.bottom.left div,
+      .corner.bottom.right div
+        animation: none
+
+      &:hover
+        .corner.top.left div,
+        .corner.top.right div,
+        .corner.bottom.left div,
+        .corner.bottom.right div
+          animation: none
+
+      // Make all animations play on click
+      &:active
+        transform: none
+
+        // Play click and blink animations
+        animation: corners-blink .075s .6s 6 alternate
+
+        // Play hover animation first
+
+        .corner.top.left div
+          animation: topleft-scale-out .5s
+          animation-fill-mode: forwards
+
+        .corner.top.right div
+          animation: topright-scale-out .5s
+          animation-fill-mode: forwards
+
+        .corner.bottom.left div
+          animation: bottomright-scale-out .5s
+          animation-fill-mode: forwards
+
+        .corner.bottom.right div
+          animation: bottomleft-scale-out .5s
+          animation-fill-mode: forwards
+
 
 #corners-anim-container
   animation-fill-mode: forwards
