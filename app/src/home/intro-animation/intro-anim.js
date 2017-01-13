@@ -5,5 +5,5 @@ const ev = isTouchDevice ? 'touchend' : 'click';
 const delay = isTouchDevice ? 1050 : 550;
 
 document.getElementById('corners').addEventListener(ev, () => setTimeout(() => {
-  console.log('Animation finished');
+  alert('You\'re in!');
 }, delay));
