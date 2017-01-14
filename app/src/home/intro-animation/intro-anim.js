@@ -5,5 +5,5 @@ const ev = isTouchDevice ? 'touchend' : 'click';
 const delay = isTouchDevice ? 1050 : 550;
 
 document.getElementById('corners').addEventListener(ev, () => setTimeout(() => {
-  alert('You\'re in!');
+  document.getElementById('animated-logo').className = 'clicked';
 }, delay));

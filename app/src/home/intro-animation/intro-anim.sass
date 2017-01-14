@@ -235,6 +235,16 @@
   animation: corners-spin-5 1s 2s ease, corners-spin-back-6 .75s 3s ease
 
 
+// Post-click animations
+
+#animated-logo.clicked
+  #corners
+    animation: fade-out 1s
+    animation-fill-mode: forwards
+
+  .letter-main
+    animation: letter-scale 1s cubic-bezier(.75, -.025, .71, .12)
+    animation-fill-mode: forwards
 
 // Import keyframe animation definitions
 

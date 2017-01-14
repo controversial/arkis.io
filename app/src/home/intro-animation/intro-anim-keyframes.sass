@@ -1,7 +1,10 @@
 // Keyframe animations for intro animation
 
 
+
 // Beginning build animations
+
+
 
 $corner-anim-distance: 25%
 
@@ -57,7 +60,9 @@ $corner-anim-distance: 25%
     transform: rotate(90deg)
 
 
+
 // Hover and click animations
+
 
 
 @keyframes topleft-scale-out
@@ -152,3 +157,24 @@ $corner-anim-distance: 25%
 
   to
     opacity: 0
+
+
+
+// Post-click build out animations
+
+
+@keyframes fade-out
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+
+@keyframes letter-scale
+  from
+    transform: translate(-50%, -52.5%)
+    transform-origin: 46.3% 51.5%
+
+  to
+    transform: translate(-50%, -52.5%) scale(100)
+    visibility: hidden
