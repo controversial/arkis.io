@@ -23,17 +23,17 @@
 // Contains the 'corners' around the letter.
    Corners are nested within several wrapper divs to allow more flexible
    stacking of animations.
-#corners-container
+.corners-container
   position: absolute
   top: 50vh
   left: 50vw
   transform: translate(-50%, -50%)
 
-  #corners
+  .corners
     cursor: pointer
 
     // This animation is defined here so that the corners blink when :active is
-       removed from #corners (click released). Although this animation does play
+       removed from .corners (click released). Although this animation does play
        when the page first loads, this is not visible because each corner has
        opacity: 0 set individually. Thus, changing opacity of the parent div
        will have no effect on the visibility of the corners. This animation is
@@ -230,7 +230,7 @@
           animation-fill-mode: forwards
 
 
-#corners-anim-container
+.corners-anim-container
   animation-fill-mode: forwards
   animation: corners-spin-5 1s 2s ease, corners-spin-back-6 .75s 3s ease
 
@@ -238,7 +238,7 @@
 // Post-click animations
 
 #animated-logo.clicked
-  #corners
+  .corners
     animation: fade-out 1s
     animation-fill-mode: forwards
 
