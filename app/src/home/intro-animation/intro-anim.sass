@@ -20,6 +20,12 @@
 
   pointer-events: none
 
+
+.corners-anim-container
+  animation-fill-mode: forwards
+  animation: corners-spin-5 1s 2s ease, corners-spin-back-6 .75s 3s ease
+
+
 // Contains the 'corners' around the letter.
    Corners are nested within several wrapper divs to allow more flexible
    stacking of animations.
@@ -29,15 +35,14 @@
   left: 50vw
   transform: translate(-50%, -50%)
 
-  .corners
-    cursor: pointer
+  #corners
 
     // This animation is defined here so that the corners blink when :active is
-       removed from .corners (click released). Although this animation does play
-       when the page first loads, this is not visible because each corner has
-       opacity: 0 set individually. Thus, changing opacity of the parent div
-       will have no effect on the visibility of the corners. This animation is
-       completed by the time the
+       removed from .corners (click released on #corners.interactable). Although
+       this animation does play when the page first loads, this is not visible
+       because each corner has opacity: 0 set individually. Thus, changing
+      opacity of the parent div  will have no effect on the visibility of the
+      corners. This animation is completed by the time the corners fade in.
     animation: corners-blink .075s .1s 6 alternate
 
     .row
@@ -154,65 +159,12 @@
             animation: bottomleft-scale-in .5s
 
 
-    // Logo hover effect
+    &.interactable
+      cursor: pointer
 
-    &:hover
-      .corner.top.left div
-        animation: topleft-scale-out .5s
-        animation-fill-mode: forwards
-
-      .corner.top.right div
-        animation: topright-scale-out .5s
-        animation-fill-mode: forwards
-
-      .corner.bottom.left div
-        animation: bottomright-scale-out .5s
-        animation-fill-mode: forwards
-
-      .corner.bottom.right div
-        animation: bottomleft-scale-out .5s
-        animation-fill-mode: forwards
-
-
-    // Logo click effect. Only immediate effect is bring the corners slightly
-       closer together, but by specifying "animation: none" this ensures that
-       the blink animation will be replayed upon click release when it is
-       reapplied as the animation.
-
-    &:active
-      transform: scale(.95)
-      animation: none
-
-    // Revise interactive animations for devices that can't hover (touch)
-    @media (hover: none)
-
-      // Remove click release effect
-      animation: none
-
-      // Remove hover effect
-
-      .corner.top.left div,
-      .corner.top.right div,
-      .corner.bottom.left div,
-      .corner.bottom.right div
-        animation: none
+      // Logo hover effect
 
       &:hover
-        .corner.top.left div,
-        .corner.top.right div,
-        .corner.bottom.left div,
-        .corner.bottom.right div
-          animation: none
-
-      // Make all animations play on click
-      &:hover
-        transform: none
-
-        // Play blink animation after hover animation
-        animation: corners-blink .075s .6s 6 alternate
-
-        // Play hover animation first
-
         .corner.top.left div
           animation: topleft-scale-out .5s
           animation-fill-mode: forwards
@@ -230,15 +182,65 @@
           animation-fill-mode: forwards
 
 
-.corners-anim-container
-  animation-fill-mode: forwards
-  animation: corners-spin-5 1s 2s ease, corners-spin-back-6 .75s 3s ease
+      // Logo click effect. Only immediate effect is bring the corners slightly
+         closer together, but by specifying "animation: none" this ensures that
+         the blink animation will be replayed upon click release when it is
+         reapplied as the animation.
 
+      &:active
+        transform: scale(.95)
+        animation: none
+
+      // Revise interactive animations for devices that can't hover (touch)
+      @media (hover: none)
+
+        // Remove click release effect
+        animation: none
+
+        // Remove hover effect
+
+        .corner.top.left div,
+        .corner.top.right div,
+        .corner.bottom.left div,
+        .corner.bottom.right div
+          animation: none
+
+        &:hover
+          .corner.top.left div,
+          .corner.top.right div,
+          .corner.bottom.left div,
+          .corner.bottom.right div
+            animation: none
+
+        // Make all animations play on click
+        &:hover
+          transform: none
+
+          // Play blink animation after hover animation
+          animation: corners-blink .075s .6s 6 alternate
+
+          // Play hover animation first
+
+          .corner.top.left div
+            animation: topleft-scale-out .5s
+            animation-fill-mode: forwards
+
+          .corner.top.right div
+            animation: topright-scale-out .5s
+            animation-fill-mode: forwards
+
+          .corner.bottom.left div
+            animation: bottomright-scale-out .5s
+            animation-fill-mode: forwards
+
+          .corner.bottom.right div
+            animation: bottomleft-scale-out .5s
+            animation-fill-mode: forwards
 
 // Post-click animations
 
 #animated-logo.clicked
-  .corners
+  #corners
     animation: fade-out 1s
     animation-fill-mode: forwards
 
