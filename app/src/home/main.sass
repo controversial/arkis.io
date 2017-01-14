@@ -11,3 +11,16 @@ $color-light: #fff
 body
   background-color: $color-dark
   color: $color-light
+  margin: 0
+
+@import top-bar
+
+
+#content-main
+  display: none
+
+  &.visible
+    display: block
+
+  *
+    transition: opacity .5s
