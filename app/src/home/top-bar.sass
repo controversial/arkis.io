@@ -1,5 +1,33 @@
 .top-bar
   width: 100vw
-  height: 5vw
+  position: fixed
 
-  background-color: $color-light
+  background-color: transparentize($color-light, .9)
+
+  padding: 10px 6vw 14px 50px
+
+  .letter-logo
+    font-family: 'Charter'
+    font-size: 30px
+    font-size: calc(20px + 2vh)
+    font-weight: bold
+
+    float: left
+
+  .right
+    float: right
+
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    height: 54px
+    height: calc(44px + 2vh)
+
+    a
+      color: $color-light
+      text-decoration: none
+
+      font-family: 'Open Sans' sans-serif
+      text-transform: uppercase
+
+      margin-left: 30px
