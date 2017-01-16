@@ -1,6 +1,5 @@
 const contentMain = document.getElementById('content-main');
 const fadeElements = contentMain.querySelectorAll('[data-build-delay]');
-console.log('Hi');
 
 module.exports = function cascadeFadeIn() {
   contentMain.className = 'visible';
