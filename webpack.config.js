@@ -19,9 +19,13 @@ module.exports = {
         query: { presets: ['es2015'] },
       },
       {
-        test: /\.ttf$/,  // Matches common font extensions
+        test: /\.ttf$/,
         loader: 'file',
         query: { name: 'fonts/[name].[ext]' },
+      },
+      {
+        test: /\.html$/,
+        loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader',
       },
     ],
   },
@@ -41,6 +45,6 @@ module.exports = {
 
 
   devServer: {
-    contentBase: path.join(__dirname, 'app'),
+    contentBase: path.join(__dirname, 'app/build'),
   },
 };
