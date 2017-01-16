@@ -7,7 +7,7 @@
   padding: 10px 6vw 14px 50px
 
   @media (orientation: portrait) and (max-width: 420px)
-    padding: 10px 0 14px 25px
+    padding: 10px 5vw 14px 25px
 
 
   .letter-logo
@@ -27,10 +27,6 @@
     height: 54px
     height: calc(44px + 2vh)
 
-    @media (orientation: portrait) and (max-width: 420px)
-      float: left
-      margin-left: 10px
-
 
     a
       color: $color-light
@@ -39,7 +35,10 @@
       font-family: 'Open Sans' sans-serif
       text-transform: uppercase
 
-      margin-left: 20px
+      @media (orientation: portrait) and (max-width: 420px)
+        font-size: calc(10px + 2vw)
+
+      margin-left: 3vw
 
       // Hover effect
 
