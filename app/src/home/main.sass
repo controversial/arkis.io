@@ -47,7 +47,7 @@ body
     transform: translate(-50%, -50%)
 
   opacity: 0
-  transition: 1s opacity
+  transition: 1.5s opacity
 
   &.visible
     opacity: 1
@@ -58,8 +58,21 @@ img
   height: auto
   position: absolute
   top: 100vh
-  transform: translateY(-50%)
+  transform: none
 
-  // This looks like shit in portrait
+  // Pre-build properties: blurry and transparent
+  opacity: 0
+  filter: blur(20px)
+
+  // During the build, the clouds will slide up, fade in, and sharpen all at the same time
+  transition: transform 3s, opacity 5s, filter 5s
+
+  &.visible
+    opacity: 1
+    transform: translateY(-50%)
+    filter: none
+
+
+  // This looks like shit in portrait, so hide it
   @media (orientation: portrait)
     display: none
