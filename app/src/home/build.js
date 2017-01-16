@@ -1,5 +1,6 @@
 const contentMain = document.getElementById('content-main');
-const fadeElements = contentMain.querySelectorAll('[data-fade]');
+const fadeElements = contentMain.querySelectorAll('[data-build-delay]');
+console.log('Hi');
 
 module.exports = function cascadeFadeIn() {
   contentMain.className = 'visible';
@@ -7,7 +8,7 @@ module.exports = function cascadeFadeIn() {
   for (let i = 0; i < fadeElements.length; i += 1) {
     const elem = fadeElements[i];
     setTimeout(() => {
-      elem.style.opacity = 1;
-    }, elem.getAttribute('data-fade') * 1000);
+      elem.className += ' visible';
+    }, elem.getAttribute('data-build-delay') * 1000);
   }
 };

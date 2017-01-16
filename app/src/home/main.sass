@@ -22,10 +22,6 @@ body
   &.visible
     display: block
 
-  *[data-fade]
-    transition: opacity 1.5s
-    opacity: 0
-
 
 .headline
   font-family: 'Montserrat'
@@ -49,6 +45,12 @@ body
     width: auto
     left: 50vw
     transform: translate(-50%, -50%)
+
+  opacity: 0
+  transition: 1s opacity
+
+  &.visible
+    opacity: 1
 
 
 img
