@@ -24,6 +24,10 @@ module.exports = {
         query: { name: 'fonts/[name].[ext]' },
       },
       {
+        test: /\.png$/,
+        loader: 'file',
+      },
+      {
         test: /\.html$/,
         loader: 'file-loader?name=[name].[ext]!extract-loader!html-loader',
       },
@@ -45,6 +49,6 @@ module.exports = {
 
 
   devServer: {
-    contentBase: path.join(__dirname, 'app/build'),
+    contentBase: path.join(__dirname, 'app'),
   },
 };
