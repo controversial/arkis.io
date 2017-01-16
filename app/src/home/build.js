@@ -15,5 +15,5 @@ module.exports = function cascadeFadeIn() {
 
   setTimeout(() => {
     document.body.style.overflow = '';
-  }, 7000);
+  }, 4000);
 };
