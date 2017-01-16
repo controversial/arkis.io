@@ -1,8 +1,6 @@
 const contentMain = document.getElementById('content-main');
 const fadeElements = contentMain.querySelectorAll('[data-build-delay]');
 
-document.body.style.overflow = 'hidden';
-
 module.exports = function cascadeFadeIn() {
   contentMain.className = 'visible';
 
@@ -12,8 +10,4 @@ module.exports = function cascadeFadeIn() {
       elem.className += ' visible';
     }, elem.getAttribute('data-build-delay') * 1000);
   }
-
-  setTimeout(() => {
-    document.body.style.overflow = '';
-  }, 4000);
 };
