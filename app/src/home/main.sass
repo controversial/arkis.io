@@ -37,6 +37,7 @@ body
   position: fixed
   left: 0
   top: 50vh
+  z-index: 2
   transform: translateY(-50%)
 
   @media (orientation: portrait) and (max-width: 420px)
@@ -58,9 +59,10 @@ img
   height: auto
   position: absolute
   top: 100vh
-  transform: none
+  z-index: 1
 
-  // Pre-build properties: blurry and transparent
+  // Pre-build properties: blurry, transparent, and not transformed into view.
+  transform: none
   opacity: 0
   filter: blur(20px)
 
