@@ -84,7 +84,7 @@ section.white-section
   img
     width: 100%
     height: auto
-    margin-bottom: -1vw
+    margin-bottom: -5px
 
     pointer-events: none
     -webkit-touch-callout: none
@@ -94,7 +94,16 @@ section.white-section
       display: none
 
 
-  div
-    background-color: darken($color-light, 1)
+  div.mist-gradient
+    position: absolute
+    display: block
+    top: 0
+    height: $half-image-height * 2
+    width: 100vw
+    background: linear-gradient(transparent, $color-light)
+
+
+  div.white
+    background-color: $color-light
     width: 100vw
     height: 100vh
