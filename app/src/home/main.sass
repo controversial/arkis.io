@@ -53,21 +53,19 @@ body
   &.visible
     opacity: 1
 
+// The following proportion is used to find the height of the image:
+//
+   2100 (image width)      100vw (browser window width)
+   -------------------  =  ----------------------------
+   1500 (image height)      ? (image hight in browser)
+ // This can be rearranged to give us the formula (1500 * 100vw / 2100) to find the image height.
+    Then we divide this by two, so we have (1500 * 100vw / 2100 / 2), or (1500 * 100vw / 4200).
+$half-image-height: 1500 * 100vw / 4200
 
 section.white-section
   position: absolute
-  // 100vh minus half the height of the image. The following proportion is used to find the height
-     of the image:
-  //
-     2100 (image width)      100vw (browser window width)
-     -------------------  =  ----------------------------
-     1500 (image height)      ? (image hight in browser)
-   //
-      This can be rearranged to give us the formula (1500 * 100vw / 2100) to find the image height.
-      Next, we divide this by two, so we have (1500 * 100vw / 2100 / 2), or (1500 * 100vw / 4200).
-      Finally this is subtracted from 100vh to give us the vertical position of the image.
 
-  top: calc(100vh - 1500 * 100vw / 4200)
+  top: calc(100vh - #{$half-image-height})
   z-index: 2
 
   // Pre-build properties: blurry, transparent, and not transformed into view.
