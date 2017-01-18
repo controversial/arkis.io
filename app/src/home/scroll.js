@@ -2,7 +2,6 @@
 
 
 // Top bar text changes from white to black after scrolling a certain amount
-
 function adjustTopBar(scroll) {
   const topBar = document.getElementsByClassName('top-bar')[0];
 
@@ -20,25 +19,12 @@ function adjustTopBar(scroll) {
 }
 
 
-// Mist moves around to look like actual mist
-
-function adjustMist(scroll) {
-  const secondaryMist = document.querySelector('img.secondary');
-  const tertiaryMist = document.querySelector('img.tertiary');
-
-  const progress = scroll / (window.innerHeight * 1.5);
-
-  secondaryMist.style.transform = `translateX(${20 - (75 * progress)}%)`;
-  tertiaryMist.style.transform = `translateX(${-20 + (75 * progress)}%)`;
-}
-
 // Main scroll handler
 
 
 function scrollHandler() {
   const scroll = window.scrollY;
   adjustTopBar(scroll);
-  adjustMist(scroll);
 }
 
 window.addEventListener('scroll', scrollHandler);
