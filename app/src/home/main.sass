@@ -59,13 +59,13 @@ body
    -------------------  =  ----------------------------
    1500 (image height)      ? (image hight in browser)
  // This can be rearranged to give us the formula (1500 * 100vw / 2100) to find the image height.
-    Then we divide this by two, so we have (1500 * 100vw / 2100 / 2), or (1500 * 100vw / 4200).
-$half-image-height: 1500 * 100vw / 4200
+$mist-image-height: 1500 * 100vw / 2100
+$half-mist-image-height: $mist-image-height / 2
 
 section.white-section
   position: absolute
 
-  top: calc(100vh - #{$half-image-height})
+  top: calc(100vh - #{$half-mist-image-height})
   z-index: 2
 
   // Pre-build properties: blurry, transparent, and not transformed into view.
@@ -98,7 +98,7 @@ section.white-section
     position: absolute
     display: block
     top: 0
-    height: $half-image-height * 2
+    height: $mist-image-height
     width: 100vw
     background: linear-gradient(transparent, $color-light)
 
