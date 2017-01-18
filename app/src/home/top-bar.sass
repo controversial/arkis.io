@@ -4,11 +4,12 @@
   z-index: 5
 
   background-color: transparentize($color-light, .9)
+  color: $color-light
 
   padding: 10px 6vw 14px 50px
 
   opacity: 0
-  transition: opacity 1.5s
+  transition: opacity 1.5s, color .5s
 
   &.visible
     opacity: 1
@@ -36,7 +37,7 @@
 
 
     a
-      color: $color-light
+      color: inherit
       text-decoration: none
 
       font-family: 'Open Sans' sans-serif
