@@ -102,8 +102,16 @@ section.white-section
     width: 100vw
     background: linear-gradient(transparent, $color-light)
 
+    @media (orientation: portrait)
+      position: static
+      height: 10vh
+
 
   div.white
     background-color: $color-light
     width: 100vw
     height: 100vh
+
+
+  @media (orientation: portrait)
+    top: 90vh
