@@ -1,5 +1,10 @@
+// Styles
 require('./main.sass');
-require('./intro-animation/intro-anim.js');
 
+// Scripts
+require('./intro-animation/intro-anim.js');
+require('./scroll.js');
+
+// Files to be copied
 require('./index.html');
 require('./fonts/CharisSIL-B.ttf');
