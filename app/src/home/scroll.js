@@ -1,5 +1,6 @@
-// Top bar changes from white to white with scroll, as the background changes
+// Scroll effects for the page
 
+// Top bar text changes from white to black after scrolling a certain amount
 function adjustTopBar(scroll) {
   const topBar = document.getElementsByClassName('top-bar')[0];
 
@@ -8,12 +9,8 @@ function adjustTopBar(scroll) {
                         ? window.innerHeight * 1.5
                         : window.innerHeight;
 
-  // Background color gradually changes until threshold
-  const gray = Math.floor(255 - (Math.min(scroll / threshold, 1) * 255));
-  topBar.style.backgroundColor = `rgba(${gray}, ${gray}, ${gray}, .1)`;
-
   // Text color changes suddenly at threshold
-  if (scroll > threshold) { // Text color
+  if (scroll > threshold) {
     topBar.style.color = 'black';
   } else {
     topBar.style.color = 'white';
