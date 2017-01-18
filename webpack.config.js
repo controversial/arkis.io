@@ -19,7 +19,7 @@ module.exports = {
         query: { presets: ['es2015'] },
       },
       {
-        test: /\.ttf$/,
+        test: /\.(ttf|woff|woff2)$/,
         loader: 'file',
         query: { name: 'fonts/[name].[ext]' },
       },
