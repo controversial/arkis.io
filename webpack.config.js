@@ -50,5 +50,6 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, 'app/build'),
+    inline: true,
   },
 };
