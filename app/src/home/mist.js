@@ -11,3 +11,5 @@ window.addEventListener('resize', () => {
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 });
+
+window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
