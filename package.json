@@ -4,6 +4,7 @@
   "description": "Website for Arkis",
   "scripts": {
     "start": "webpack-dev-server --open",
+    "c9-serve": "webpack-dev-server --host $IP --port $PORT",
     "build": "webpack",
     "watch": "webpack --watch",
     "lint-sass": "sass-lint 'app/**/*.sass' -v",
