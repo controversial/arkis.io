@@ -107,6 +107,32 @@ class ParticleRenderer {
   }
 
   /**
+   * Draw the particles on the canvas
+   */
+  draw() {
+    // TODO
+    this.particles.forEach(() => {});
+  }
+
+  /**
+   * Advance the simulation by one step
+   */
+  step() {
+    this.particles.forEach(particle => particle.step());
+  }
+
+  /**
+   * Begin a render loop
+   */
+  start() {
+    // TODO
+    this.interval = setInterval(() => {
+      this.step();
+      requestAnimationFrame(this.draw);
+    }, 100);
+  }
+
+  /**
    * Get the width of the canvas coordinate system.
    * @return {number} the width of the canvas
    */
