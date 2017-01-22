@@ -1,3 +1,12 @@
+// Mist textures
+const textures = [
+  require('./textures/mist-particle-1.png'),
+  require('./textures/mist-particle-2.png'),
+  require('./textures/mist-particle-3.png'),
+  require('./textures/mist-particle-4.png'),
+  require('./textures/mist-particle-5.png'),
+];
+
 // Helper functions
 
 
@@ -13,14 +22,20 @@ if (!Array.prototype.fill) {
   /* eslint-enable no-extend-native */
 }
 
+/** Return a random number between `low` and `high` */
 function random(low, high) {
   return (Math.random() * (high - low)) + low;
 }
 
+/** Return a random integer between `low` and `high-1` */
 function randint(low, high) {
   return Math.floor(random(low, high));
 }
 
+/** Return a random item from an array */
+function randchoice(array) {
+  return array[randint(0, array.length)];
+}
 
 /** Implements basic particle physics (moving and bouncing) */
 class Particle {
@@ -33,8 +48,11 @@ class Particle {
    * @param {number} vx - the initial X velocity of the particle
    * @param {number} vy - the initial Y velocity of the particle
    */
-  constructor(renderer, x, y, vx, vy) {
+  constructor(renderer, x, y, vx, vy, image) {
     this.renderer = renderer;
+    // Path to particle texture. Not used by Particle, used by ParticleRenderer
+    this.image = image;
+
     this.x = x;    // X position on canvas
     this.y = y;    // Y position on canvas
     this.vx = vx;  // X velocity
@@ -84,6 +102,7 @@ class ParticleRenderer {
       randint(0, this.height()),  // Y position
       randint(0, 5),              // X velocity
       randint(0, 5),              // Y velocity
+      randchoice(textures),
     ));
   }
 
