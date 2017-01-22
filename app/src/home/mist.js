@@ -1,10 +1,19 @@
-const canvas = document.getElementById('mist');
-const ctx = canvas.getContext('2d');
+// Helper functions
 
+function random(low, high) {
+  return (Math.random() * (high - low)) + low;
+}
+
+function randint(low, high) {
+  return Math.floor(random(low, high));
+}
+
+
+// Basic particle physics (moving and bouncing)
 class Particle {
   constructor(renderer, x, y, vx, vy) {
     this.renderer = renderer;
-    this.x = x;     // X position on canvas
+    this.x = x;    // X position on canvas
     this.y = y;    // Y position on canvas
     this.vx = vx;  // X velocity
     this.vy = vy;  // Y velocity
@@ -12,10 +21,10 @@ class Particle {
 
   step() {
     // Bounce particles when they hit the edges of the canvas
-    if (this.x < 0 || this.x >= this.renderer.width) {
+    if (this.x < 0 || this.x >= this.renderer.width()) {
       this.bounceX();
     }
-    if (this.y < 0 || this.y >= this.renderer.height) {
+    if (this.y < 0 || this.y >= this.renderer.height()) {
       this.bounceY();
     }
 
@@ -32,11 +41,37 @@ class Particle {
   }
 }
 
-class ParticleRenderer {
 
+// Orchestrates and renders particles
+class ParticleRenderer {
+  constructor(ctx, particleCount) {
+    this.ctx = ctx;
+    this.particleCount = particleCount;
+
+    this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
+      this,
+      randint(0, this.width()),   // X position
+      randint(0, this.height()),  // Y position
+      randint(0, 5),              // X velocity
+      randint(0, 5),              // Y velocity
+    ));
+    console.log(this.particles)
+  }
+
+  width() {
+    return this.ctx.canvas.width;
+  }
+
+  height() {
+    return this.ctx.canvas.height;
+  }
 }
 
+
 window.addEventListener('resize', () => {
+  const canvas = document.getElementById('mist');
+  const ctx = canvas.getContext('2d');
+
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight * 0.8;
 
@@ -57,3 +92,9 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
+
+window.addEventListener('load', () => {
+  const canvas = document.getElementById('mist');
+  const ctx = canvas.getContext('2d');
+  window.particleSim = new ParticleRenderer(ctx, 10);
+});
