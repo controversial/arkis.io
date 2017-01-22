@@ -1,5 +1,17 @@
 // Helper functions
 
+// My [].fill polyfill
+if (!Array.prototype.fill) {
+  /* eslint-disable no-extend-native */
+  Array.prototype.fill = (value) => {
+    for (let i = 0; i < this.length; i += 1) {
+      this[i] = value;
+    }
+    return this;
+  };
+  /* eslint-enable no-extend-native */
+}
+
 function random(low, high) {
   return (Math.random() * (high - low)) + low;
 }
