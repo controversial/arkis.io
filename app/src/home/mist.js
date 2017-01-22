@@ -67,7 +67,6 @@ class ParticleRenderer {
       randint(0, 5),              // X velocity
       randint(0, 5),              // Y velocity
     ));
-    console.log(this.particles)
   }
 
   width() {
