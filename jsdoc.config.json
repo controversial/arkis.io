@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["app/src"]
+  },
+  "plugins": ["node_modules/jsdoc-babel"],
+  "opts": {
+    "encoding": "utf8",
+    "recurse": "true",
+    "destination": "docs",
+    "verbose": "true"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  }
+}
