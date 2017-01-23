@@ -7,7 +7,7 @@ function adjustTopBar(scroll) {
 
   // Scroll distance at which everything will switch from black to white
   const threshold = window.innerWidth > window.innerHeight
-                        ? window.innerHeight * 1.5
+                        ? window.innerHeight * 1.25
                         : window.innerHeight * 0.95;
 
   // Text color changes suddenly at threshold
