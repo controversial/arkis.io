@@ -133,9 +133,14 @@ class ParticleRenderer {
    * Draw the particles on the canvas
    */
   draw() {
-    // TODO
     if (texturesLoaded) {
-      this.particles.forEach(() => {});
+      this.ctx.clearRect(0, 0, this.width(), this.height());
+      this.particles.forEach((p) => {
+        this.ctx.fillStyle = 'green';
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI, false);
+        this.ctx.fill();
+      });
     }
   }
 
@@ -188,5 +193,5 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.smokeSim = new ParticleRenderer(ctx, 10);
+  window.mistSim = new ParticleRenderer(ctx, 10);
 });
