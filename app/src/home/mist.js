@@ -137,6 +137,8 @@ class ParticleRenderer {
    * Draw the particles on the canvas
    */
   draw() {
+    this.ctx.globalCompositeOperation = 'source-over';
+
     if (texturesLoaded) {
       this.ctx.clearRect(0, 0, this.width(), this.height());
       this.particles.forEach(p => this.ctx.drawImage(
@@ -148,10 +150,11 @@ class ParticleRenderer {
 
     // Create fade by drawing a black to transparent gradient on top
 
+    this.ctx.globalCompositeOperation = 'destination-out';
     const gradient = this.ctx.createLinearGradient(0, 0, 0, this.height());
-    gradient.addColorStop(0.0, 'rgba(0, 0, 0, 1)');
-    gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.75)');
-    gradient.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(0.0, 'rgba(255, 255, 255, 1)');
+    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.75)');
+    gradient.addColorStop(1.0, 'rgba(255, 255, 255, 0)');
     this.ctx.fillStyle = gradient;
     this.ctx.fillRect(0, 0, this.width(), this.height());
   }
