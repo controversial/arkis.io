@@ -154,7 +154,13 @@ class ParticleRenderer {
         this.ctx.translate(p.x, p.y);
         this.ctx.rotate(rotation);
 
-        this.ctx.drawImage(p.image, -(p.image.width / 2), -(p.image.height / 2));
+        this.ctx.drawImage(
+          p.image,
+          -(p.image.width / 2),
+          -(p.image.height / 2),
+          window.innerWidth / 3,
+          window.innerWidth / 3,
+        );
 
         this.ctx.rotate(-rotation);
         this.ctx.translate(-p.x, -p.y);
