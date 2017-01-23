@@ -114,10 +114,12 @@ class ParticleRenderer {
    * Create a new particle renderer.
    * @param {CanvasRenderingContext2D} ctx - the rendering context of the canvas to draw on
    * @param {number} particleCount - the number of particles to maintain in the simulation
+   * @param {number} fps - the number of frames per second at which the simulation should run
    */
-  constructor(ctx, particleCount) {
+  constructor(ctx, particleCount, fps) {
     this.ctx = ctx;
     this.particleCount = particleCount;
+    this.speed = fps;
 
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
       this,
@@ -159,7 +161,7 @@ class ParticleRenderer {
     this.interval = setInterval(() => {
       this.step();
       requestAnimationFrame(() => { this.draw(); });
-    }, 100);
+    }, 1000 / this.fps);
   }
 
   /**
@@ -192,5 +194,5 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.mistSim = new ParticleRenderer(ctx, 10);
+  window.mistSim = new ParticleRenderer(ctx, 10, 50);
 });
