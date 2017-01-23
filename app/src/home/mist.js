@@ -147,6 +147,7 @@ class ParticleRenderer {
 
     if (texturesLoaded) {
       this.ctx.clearRect(0, 0, this.width(), this.height());
+      this.ctx.globalAlpha = 0.8;
       this.particles.forEach((p) => {
         const width = window.innerWidth / 3;
         const height = width;
@@ -166,6 +167,7 @@ class ParticleRenderer {
       });
     }
 
+    this.ctx.globalAlpha = 1;
     // Create fade by using blend modes to create gradient opacity masks
 
     this.ctx.globalCompositeOperation = 'destination-out';
