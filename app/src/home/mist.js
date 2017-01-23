@@ -26,7 +26,7 @@ function textureLoadCallback() {
 
 // Assign a mist particle texture to each Image object
 for (let i = 0; i < textures.length; i += 1) {
-  textures[i].addEventListener('load', textureLoadCallback());
+  textures[i].addEventListener('load', textureLoadCallback);
   textures[i].src = texturePaths[i];
 }
 
