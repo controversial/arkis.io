@@ -145,6 +145,14 @@ class ParticleRenderer {
         p.y - (p.image.height / 2),
       ));
     }
+
+    // Create fade by drawing a black to transparent gradient on top
+
+    const gradient = this.ctx.createLinearGradient(0, 0, 0, this.height());
+    gradient.addColorStop(0, '#000');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    this.ctx.fillStyle = gradient;
+    this.ctx.fillRect(0, 0, this.width(), this.height());
   }
 
   /**
@@ -195,6 +203,6 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.mistSim = new ParticleRenderer(ctx, 50, 50);
+  window.mistSim = new ParticleRenderer(ctx, 75, 50);
   window.mistSim.start();
 });
