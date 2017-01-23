@@ -125,8 +125,8 @@ class ParticleRenderer {
       this,
       randint(0, this.width()),   // X position
       randint(0, this.height()),  // Y position
-      randint(0, 5),              // X velocity
-      randint(0, 5),              // Y velocity
+      randint(1, 5),              // X velocity
+      randint(1, 5),              // Y velocity
       randchoice(textures),       // Random choice of the mist particle textures
     ));
   }
