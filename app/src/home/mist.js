@@ -158,7 +158,7 @@ class ParticleRenderer {
     // TODO
     this.interval = setInterval(() => {
       this.step();
-      requestAnimationFrame(this.draw);
+      requestAnimationFrame(() => { this.draw(); });
     }, 100);
   }
 
