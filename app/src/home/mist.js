@@ -175,15 +175,14 @@ class ParticleRenderer {
       });
     }
 
-    // Create fade by drawing a black to transparent gradient on top
+    // Create fade by using blend modes to create gradient opacity masks
 
     this.ctx.globalCompositeOperation = 'destination-out';
-    const gradient = this.ctx.createLinearGradient(0, 0, 0, this.height());
+    const gradient = this.ctx.createLinearGradient(0, 0, 0, this.height() / 2);
     gradient.addColorStop(0.0, 'rgba(255, 255, 255, 1)');
-    gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.75)');
     gradient.addColorStop(1.0, 'rgba(255, 255, 255, 0)');
     this.ctx.fillStyle = gradient;
-    this.ctx.fillRect(0, 0, this.width(), this.height());
+    this.ctx.fillRect(0, 0, this.width(), this.height() / 2);
   }
 
   /**
