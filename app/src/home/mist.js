@@ -127,8 +127,8 @@ class ParticleRenderer {
       this,
       randint(0, this.width()),   // X position
       randint(0, this.height()),  // Y position
-      randint(1, 5),              // X velocity
-      randint(1, 5),              // Y velocity
+      randint(1, 4),              // X velocity
+      randint(1, 4),              // Y velocity
       randchoice(textures),       // Random choice of the mist particle textures
     ));
   }
@@ -207,6 +207,6 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.mistSim = new ParticleRenderer(ctx, 75, 50);
+  window.mistSim = new ParticleRenderer(ctx, 85, 25);
   window.mistSim.start();
 });
