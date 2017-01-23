@@ -119,7 +119,7 @@ class ParticleRenderer {
   constructor(ctx, particleCount, fps) {
     this.ctx = ctx;
     this.particleCount = particleCount;
-    this.speed = fps;
+    this.fps = fps;
 
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
       this,
