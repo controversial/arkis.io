@@ -194,5 +194,5 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.mistSim = new ParticleRenderer(ctx, 10, 50);
+  window.mistSim = new ParticleRenderer(ctx, 100, 50);
 });
