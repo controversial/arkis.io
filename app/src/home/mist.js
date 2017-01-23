@@ -133,11 +133,19 @@ class ParticleRenderer {
       this,
       randint(0, this.width()),   // X position
       randint(0, this.height()),  // Y position
-      randint(1, 4),              // X velocity
-      randint(1, 4),              // Y velocity
+      randint(-4, 4),             // X velocity
+      randint(-4, 4),             // Y velocity
       random(-0.5, 0.5),          // Rotational velocity
       randchoice(textures),       // Random choice of the mist particle textures
     ));
+
+    // Make sure no particles have 0 velocity in either direction
+    this.particles = this.particles.map((p) => {
+      const particle = p;
+      while (particle.vx === 0) particle.vx = randint(-4, 4);
+      while (particle.vy === 0) particle.vy = randint(-4, 4);
+      return particle;
+    });
   }
 
   /**
