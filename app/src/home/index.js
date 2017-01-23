@@ -4,6 +4,7 @@ require('./main.sass');
 // Scripts
 require('./intro-animation/intro-anim.js');
 require('./scroll.js');
+require('./mist.js');
 
 // Files to be copied
 require('./index.html');

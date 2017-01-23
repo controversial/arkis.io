@@ -1,5 +1,6 @@
 .DS_Store
 app/build
+docs
 
 # Logs
 logs

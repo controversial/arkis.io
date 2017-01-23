@@ -9,7 +9,8 @@
     "watch": "webpack --watch",
     "lint-sass": "sass-lint 'app/**/*.sass' -v",
     "lint-js": "eslint .",
-    "test": "npm run -s lint-sass && npm run -s lint-js"
+    "test": "npm run -s lint-sass && npm run -s lint-js",
+    "docs": "jsdoc app/src -c jsdoc.config.json -r -d docs --verbose"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,8 @@
     "extract-loader": "^0.1.0",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
+    "jsdoc": "^3.4.3",
+    "jsdoc-babel": "^0.3.0",
     "node-sass": "^4.2.0",
     "postcss-loader": "^1.2.2",
     "sass-lint": "^1.10.2",
