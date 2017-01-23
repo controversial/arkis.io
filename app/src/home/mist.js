@@ -126,21 +126,17 @@ class ParticleRenderer {
 
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
       this,
-      random(0, this.width()),   // X position
-      random(0, this.height()),  // Y position
-      random(-4, 4),             // X velocity
-      random(-4, 4),             // Y velocity
-      random(-0.5, 0.5),         // Rotational velocity
-      randchoice(textures),      // Random choice of the mist particle textures
+      // X and Y position
+      random(0, this.width()),
+      random(0, this.height()),
+      // X and Y velocity. Either positive or negative with a minimum speed of 0.5, maximum of 4
+      randchoice([random(-4, -0.5), random(0.5, 4)]),
+      randchoice([random(-4, -0.5), random(0.5, 4)]),
+      // Rotational velocity
+      random(-0.5, 0.5),
+      // Random choice of the mist particle textures as an image
+      randchoice(textures),
     ));
-
-    // Make sure all particles have a minimum speed of 0.5
-    this.particles = this.particles.map((p) => {
-      const particle = p;
-      while (particle.vx > -0.5 && particle.vx < 0.5) particle.vx = random(-4, 4);
-      while (particle.vy > -0.5 && particle.vy < 0.5) particle.vy = random(-4, 4);
-      return particle;
-    });
   }
 
   /**
