@@ -134,11 +134,11 @@ class ParticleRenderer {
       randchoice(textures),      // Random choice of the mist particle textures
     ));
 
-    // Make sure no particles have 0 velocity in either direction
+    // Make sure all particles have a minimum speed of 0.5
     this.particles = this.particles.map((p) => {
       const particle = p;
-      while (particle.vx < 0.5) particle.vx = random(-4, 4);
-      while (particle.vy < 0.5) particle.vy = random(-4, 4);
+      while (particle.vx > -0.5 && particle.vx < 0.5) particle.vx = random(-4, 4);
+      while (particle.vy > -0.5 && particle.vy < 0.5) particle.vy = random(-4, 4);
       return particle;
     });
   }
