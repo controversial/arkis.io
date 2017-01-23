@@ -1,11 +1,34 @@
-// Mist textures
-const textures = [
+// Load mist textures
+
+let numTexturesLoaded = 0;
+let texturesLoaded = false;
+
+// Paths to all the mist particle textures
+const texturePaths = [
   require('./textures/mist-particle-1.png'),
   require('./textures/mist-particle-2.png'),
   require('./textures/mist-particle-3.png'),
   require('./textures/mist-particle-4.png'),
   require('./textures/mist-particle-5.png'),
 ];
+
+// Array of Image objects, one for each mist particle texture
+const textures = texturePaths.map(() => new Image());
+
+// Called when a mist particle texture finishes loading to be able to tell when all mist particles
+// have loaded.
+function textureLoadCallback() {
+  numTexturesLoaded += 1;
+  if (numTexturesLoaded === texturePaths.length) {
+    texturesLoaded = true;
+  }
+}
+
+// Assign a mist particle texture to each Image object
+for (let i = 0; i < textures.length; i += 1) {
+  textures[i].addEventListener('load', textureLoadCallback());
+  textures[i].src = texturePaths[i];
+}
 
 // Helper functions
 
@@ -50,7 +73,7 @@ class Particle {
    */
   constructor(renderer, x, y, vx, vy, image) {
     this.renderer = renderer;
-    // Path to particle texture. Not used by Particle, used by ParticleRenderer
+    // Image object for mist particle texture. Not used by Particle, used by ParticleRenderer
     this.image = image;
 
     this.x = x;    // X position on canvas
@@ -102,7 +125,7 @@ class ParticleRenderer {
       randint(0, this.height()),  // Y position
       randint(0, 5),              // X velocity
       randint(0, 5),              // Y velocity
-      randchoice(textures),
+      randchoice(textures),       // Random choice of the mist particle textures
     ));
   }
 
@@ -111,7 +134,9 @@ class ParticleRenderer {
    */
   draw() {
     // TODO
-    this.particles.forEach(() => {});
+    if (texturesLoaded) {
+      this.particles.forEach(() => {});
+    }
   }
 
   /**
