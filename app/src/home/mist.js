@@ -85,10 +85,12 @@ class Particle {
   /** Advance the simulation by one step */
   step() {
     // Bounce particles when they hit the edges of the canvas
-    if (this.x < 0 || this.x >= this.renderer.width()) {
+    const marginX = this.image.width / 2;
+    const marginY = this.image.height / 2;
+    if (this.x < -marginX || this.x >= this.renderer.width() + marginX) {
       this.bounceX();
     }
-    if (this.y < 0 || this.y >= this.renderer.height()) {
+    if (this.y < -1 * marginY || this.y >= this.renderer.height() + marginX) {
       this.bounceY();
     }
 
