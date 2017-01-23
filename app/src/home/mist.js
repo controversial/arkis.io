@@ -70,16 +70,19 @@ class Particle {
    * @param {number} y - the initial Y position of the particle
    * @param {number} vx - the initial X velocity of the particle
    * @param {number} vy - the initial Y velocity of the particle
+   * @param {number} vrot - the initial rotational velocity of the particle (degrees)
    */
-  constructor(renderer, x, y, vx, vy, image) {
+  constructor(renderer, x, y, vx, vy, vrot, image) {
     this.renderer = renderer;
     // Image object for mist particle texture. Not used by Particle, used by ParticleRenderer
     this.image = image;
 
-    this.x = x;    // X position on canvas
-    this.y = y;    // Y position on canvas
-    this.vx = vx;  // X velocity
-    this.vy = vy;  // Y velocity
+    this.rot = 0;      // Rotation (in degrees)
+    this.x = x;        // X position on canvas
+    this.y = y;        // Y position on canvas
+    this.vx = vx;      // X velocity
+    this.vy = vy;      // Y velocity
+    this.vrot = vrot;  // Rotational velocity
   }
 
   /** Advance the simulation by one step */
@@ -96,6 +99,9 @@ class Particle {
 
     this.x += this.vx;
     this.y += this.vy;
+
+    this.rot += this.vrot;
+    this.rot %= 360;
   }
 
   /** Cause the current particle to bounce in the X direction */
@@ -129,6 +135,7 @@ class ParticleRenderer {
       randint(0, this.height()),  // Y position
       randint(1, 4),              // X velocity
       randint(1, 4),              // Y velocity
+      random(-0.5, 0.5),          // Rotational velocity
       randchoice(textures),       // Random choice of the mist particle textures
     ));
   }
@@ -141,11 +148,17 @@ class ParticleRenderer {
 
     if (texturesLoaded) {
       this.ctx.clearRect(0, 0, this.width(), this.height());
-      this.particles.forEach(p => this.ctx.drawImage(
-        p.image,
-        p.x - (p.image.width / 2),
-        p.y - (p.image.height / 2),
-      ));
+      this.particles.forEach((p) => {
+        const rotation = p.rot * (Math.PI / 180);
+
+        this.ctx.translate(p.x, p.y);
+        this.ctx.rotate(rotation);
+
+        this.ctx.drawImage(p.image, -(p.image.width / 2), -(p.image.height / 2));
+
+        this.ctx.rotate(-rotation);
+        this.ctx.translate(-p.x, -p.y);
+      });
     }
 
     // Create fade by drawing a black to transparent gradient on top
