@@ -149,8 +149,9 @@ class ParticleRenderer {
     // Create fade by drawing a black to transparent gradient on top
 
     const gradient = this.ctx.createLinearGradient(0, 0, 0, this.height());
-    gradient.addColorStop(0, '#000');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(0.0, 'rgba(0, 0, 0, 1)');
+    gradient.addColorStop(0.5, 'rgba(0, 0, 0, 0.75)');
+    gradient.addColorStop(1.0, 'rgba(0, 0, 0, 0)');
     this.ctx.fillStyle = gradient;
     this.ctx.fillRect(0, 0, this.width(), this.height());
   }
