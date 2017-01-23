@@ -182,7 +182,6 @@ class ParticleRenderer {
 
 window.addEventListener('resize', () => {
   const canvas = document.getElementById('mist');
-  const ctx = canvas.getContext('2d');
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight * 0.8;
