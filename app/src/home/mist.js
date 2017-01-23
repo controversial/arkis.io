@@ -50,14 +50,9 @@ function random(low, high) {
   return (Math.random() * (high - low)) + low;
 }
 
-/** Return a random integer between `low` and `high-1` */
-function randint(low, high) {
-  return Math.floor(random(low, high));
-}
-
 /** Return a random item from an array */
 function randchoice(array) {
-  return array[randint(0, array.length)];
+  return array[Math.floor(random(0, array.length))];
 }
 
 /** Implements basic particle physics (moving and bouncing) */
