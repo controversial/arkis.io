@@ -12,9 +12,9 @@ function adjustTopBar(scroll) {
 
   // Text color changes suddenly at threshold
   if (scroll > threshold) {
-    topBar.style.color = 'black';
+    topBar.classList.add('black');
   } else {
-    topBar.style.color = 'white';
+    topBar.classList.remove('black');
   }
 }
 

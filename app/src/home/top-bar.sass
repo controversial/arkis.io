@@ -61,9 +61,15 @@
         background-color: $color-light
         transform: scaleX(0)
         transform-origin: bottom right
-        transition: transform .4s cubic-bezier(.215, .61, .355, 1)
+        transition: transform .4s cubic-bezier(.215, .61, .355, 1), background-color .5s
 
       &:hover
         &::after
           transform: scaleX(1)
           transform-origin: bottom left
+
+.top-bar.black
+  color: $color-dark
+
+  .right a::after
+    background-color: $color-dark
