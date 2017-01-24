@@ -13,12 +13,12 @@ setTimeout(() => {
 
   const logo = document.getElementById('animated-logo');
   const cornersDiv = document.getElementById('corners');
-  cornersDiv.className = 'interactable';
+  cornersDiv.classList.add('interactable');
 
   // Click event triggers further animations on the elements
 
   cornersDiv.addEventListener(ev, () => setTimeout(() => {
-    logo.className = 'clicked';
+    logo.classList.add('clicked');
     // Set display: none on logo
     setTimeout(() => {
       logo.style.display = 'none';
