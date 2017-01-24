@@ -19,12 +19,21 @@ function adjustTopBar(scroll) {
 }
 
 
+function headlineParallax(scroll) {
+  requestAnimationFrame(() => {
+    const headline = document.getElementsByClassName('headline')[0];
+    headline.style.transform = `translateY(calc( -50% - ${scroll / 50}vh ))`;
+  });
+}
+
+
 // Main scroll handler
 
 
 function scrollHandler() {
   const scroll = window.scrollY;
   adjustTopBar(scroll);
+  headlineParallax(scroll);
 }
 
 window.addEventListener('scroll', scrollHandler);
