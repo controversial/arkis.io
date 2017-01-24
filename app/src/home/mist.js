@@ -168,24 +168,26 @@ class ParticleRenderer {
     }
 
     this.ctx.globalAlpha = 1;
+
     // Create fade by using blend modes to create gradient opacity masks
 
     this.ctx.globalCompositeOperation = 'destination-out';
+
     // Short linear fade at the top
-    const gradient1 = this.ctx.createLinearGradient(0, 0, 0, this.height() / 2);
-    gradient1.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    gradient1.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    this.ctx.fillStyle = gradient1;
+    const maskGradient1 = this.ctx.createLinearGradient(0, 0, 0, this.height() / 2);
+    maskGradient1.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    maskGradient1.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    this.ctx.fillStyle = maskGradient1;
     this.ctx.fillRect(0, 0, this.width(), this.height() / 2);
 
     // Large radial gradient to cut out the top center in an arc
-    const gradient2 = this.ctx.createRadialGradient(
+    const maskGradient2 = this.ctx.createRadialGradient(
       (this.width() / 2), 0, 0,
       (this.width() / 2), 0, (this.height() * 2),
     );
-    gradient2.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    gradient2.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    this.ctx.fillStyle = gradient2;
+    maskGradient2.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    maskGradient2.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    this.ctx.fillStyle = maskGradient2;
     this.ctx.fillRect(0, 0, this.width(), this.height() * 2);
   }
 
