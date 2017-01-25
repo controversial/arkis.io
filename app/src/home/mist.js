@@ -184,14 +184,19 @@ class ParticleRenderer {
   }
 
   /**
-   * Begin a render loop
+   * Begin a run loop
    */
   start() {
-    // TODO
-    this.interval = setInterval(() => {
-      this.step();
-      requestAnimationFrame(() => { this.draw(); });
-    }, 1000 / this.fps);
+    this.step();
+    requestAnimationFrame(() => this.draw());
+    this.timeoutID = setTimeout(() => this.start(), 1000 / this.fps);
+  }
+
+  /**
+   * Stop the run loop
+   */
+  stop() {
+    clearTimeout(this.timeoutID);
   }
 
   /**
