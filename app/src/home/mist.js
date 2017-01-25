@@ -118,6 +118,7 @@ class ParticleRenderer {
    * @param {CanvasRenderingContext2D} ctx - the rendering context of the canvas to draw on
    * @param {number} particleCount - the number of particles to maintain in the simulation
    * @param {number} fps - the number of frames per second at which the simulation should run
+   * @param {function} postRender - a function to run after each frame is drawn
    */
   constructor(ctx, particleCount, fps, postRender) {
     this.ctx = ctx;
