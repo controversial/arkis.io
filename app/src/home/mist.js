@@ -163,6 +163,7 @@ class ParticleRenderer {
     ));
 
     this.running = false;
+    this.debug = false;
   }
 
   /**
@@ -177,6 +178,8 @@ class ParticleRenderer {
       texturesLoaded
       // 2. The canvas should not have display: none
       && this.ctx.canvas.offsetParent != null
+      // 3. Debug rendering mode is off
+      && !this.debug
     ) {
       this.ctx.clearRect(0, 0, this.width(), this.height());
       this.ctx.globalAlpha = 0.8;
@@ -201,6 +204,19 @@ class ParticleRenderer {
 
       this.ctx.globalAlpha = 1;
       this.postRender(this);
+    } else if (this.debug) {
+      // Debug rendering mode
+
+      this.ctx.clearRect(0, 0, this.width(), this.height());
+
+      this.particles.forEach((p) => {
+        p.width = 0;
+        p.height = 0;
+        this.ctx.fillStyle = '#0f0';
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, 10, 0, 2 * Math.PI);
+        this.ctx.fill();
+      });
     }
   }
 
