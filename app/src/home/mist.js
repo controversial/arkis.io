@@ -79,18 +79,18 @@ class Particle {
     this.vx = vx;      // X velocity
     this.vy = vy;      // Y velocity
     this.vrot = vrot;  // Rotational velocity
+
+    this.width = this.image.width;
+    this.height = this.image.height;
   }
 
   /** Advance the simulation by one step */
   step() {
-    const marginX = this.image.width / 2;
-    const marginY = this.image.height / 2;
-
     // Bounce particles when they hit the edges of the canvas
-    if (this.x < -marginX || this.x >= this.renderer.width() + marginX) {
+    if (this.x < -(this.width / 2) || this.x >= this.renderer.width() + (this.width / 2)) {
       this.bounceX();
     }
-    if (this.y < -marginY || this.y >= this.renderer.height() + marginY) {
+    if (this.y < -(this.width / 2) || this.y >= this.renderer.height() + (this.height / 2)) {
       this.bounceY();
     }
 
@@ -117,10 +117,10 @@ class Particle {
   }
 
   reignIn() {
-    const lowX = -(this.image.width / 2);
-    const lowY = -(this.image.height / 2);
-    const highX = this.renderer.width() + (this.image.width / 2);
-    const highY = this.renderer.height() + (this.image.height / 2);
+    const lowX = -(this.width / 2);
+    const lowY = -(this.height / 2);
+    const highX = this.renderer.width() + (this.width / 2);
+    const highY = this.renderer.height() + (this.width / 2);
 
     if (this.x < lowX) { this.x = lowX; }
     if (this.y < lowY) { this.y = lowY; }
