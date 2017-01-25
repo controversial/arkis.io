@@ -60,18 +60,16 @@ section.white-section
   top: 60vh
   z-index: 2
 
-  // Pre-build properties: blurry, transparent, and not transformed into view.
+  // Pre-build properties: transparent and not transformed into view.
   transform: translateY(40vh)
   opacity: 0
-  filter: blur(20px)
 
-  // During the build, the clouds will slide up, fade in, and sharpen all at the same time
-  transition: transform 3s, opacity 4s, filter 4s
+  // During the build, the clouds will slide up and fade in
+  transition: transform 3s, opacity 4s
 
   &.visible
     opacity: 1
     transform: none
-    filter: none
 
   canvas
     width: 100%
