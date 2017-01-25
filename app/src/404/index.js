@@ -1,5 +1,7 @@
-const mist = require('../home/mist.js');
 require('./index.html');
+require('./main.sass');
+
+const mist = require('../home/mist.js');
 
 const canvas = document.getElementById('mist');
 const ctx = canvas.getContext('2d');
@@ -29,5 +31,6 @@ function postRender(renderer) {
 
 /* eslint-enable no-param-reassign*/
 
-
-window.mistSim = new mist.MistRenderer(ctx, 85, 25, postRender);
+window.addEventListener('load', () => {
+  window.mistSim = new mist.ParticleRenderer(ctx, 85, 25, postRender);
+});
