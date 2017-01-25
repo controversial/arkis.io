@@ -34,13 +34,13 @@ function postRender(renderer) {
     renderer.width(),
     renderer.height() * 2,
   );
-  renderer.ctx.scale(1 / 1.1, 2);
+  renderer.ctx.scale(0.8, 2);
   renderer.ctx.translate(-(renderer.width() / 2), -(renderer.height() / 2));
 }
 
 /* eslint-enable no-param-reassign*/
 
 window.addEventListener('load', () => {
-  window.mistSim = new mist.ParticleRenderer(ctx, 100, 25, postRender);
+  window.mistSim = new mist.ParticleRenderer(ctx, 100, 25, 0.5, postRender);
   window.mistSim.start();
 });

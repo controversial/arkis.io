@@ -40,6 +40,6 @@ function postRender(renderer) {
 window.addEventListener('load', () => {
   const canvas = document.getElementById('mist');
   const ctx = canvas.getContext('2d');
-  window.mistSim = new mist.ParticleRenderer(ctx, 85, 25, postRender);
+  window.mistSim = new mist.ParticleRenderer(ctx, 85, 25, 4, postRender);
   window.mistSim.start();
 });

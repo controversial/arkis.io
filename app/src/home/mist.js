@@ -118,12 +118,14 @@ class ParticleRenderer {
    * @param {CanvasRenderingContext2D} ctx - the rendering context of the canvas to draw on
    * @param {number} particleCount - the number of particles to maintain in the simulation
    * @param {number} fps - the number of frames per second at which the simulation should run
+   * @param {number} maxSpeed - the maximum velocity in either direction that a particle may have
    * @param {function} postRender - a function to run after each frame is drawn
    */
-  constructor(ctx, particleCount, fps, postRender) {
+  constructor(ctx, particleCount, fps, maxSpeed, postRender) {
     this.ctx = ctx;
     this.particleCount = particleCount;
     this.fps = fps;
+    this.maxSpeed = maxSpeed || 4;
     this.postRender = postRender || (() => {});
 
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
@@ -131,9 +133,9 @@ class ParticleRenderer {
       // X and Y position
       random(0, this.width()),
       random(0, this.height()),
-      // X and Y velocity. Either positive or negative with a minimum speed of 0.5, maximum of 4
-      randchoice([random(-4, -0.5), random(0.5, 4)]),
-      randchoice([random(-4, -0.5), random(0.5, 4)]),
+      // X and Y velocity. Either positive or negative with a minimum speed of 0.5, max of maxSpeed
+      randchoice([random(-this.maxSpeed, -0.5), random(0.5, this.maxSpeed)]),
+      randchoice([random(-this.maxSpeed, -0.5), random(0.5, this.maxSpeed)]),
       // Rotational velocity
       random(-0.5, 0.5),
       // Random choice of the mist particle textures as an image
