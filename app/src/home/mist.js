@@ -119,10 +119,11 @@ class ParticleRenderer {
    * @param {number} particleCount - the number of particles to maintain in the simulation
    * @param {number} fps - the number of frames per second at which the simulation should run
    */
-  constructor(ctx, particleCount, fps) {
+  constructor(ctx, particleCount, fps, postRender) {
     this.ctx = ctx;
     this.particleCount = particleCount;
     this.fps = fps;
+    this.postRender = postRender || (() => {});
 
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
       this,
@@ -169,26 +170,7 @@ class ParticleRenderer {
 
     this.ctx.globalAlpha = 1;
 
-    // Create fade by using blend modes to create gradient opacity masks
-
-    this.ctx.globalCompositeOperation = 'destination-out';
-
-    // Short linear fade at the top
-    const maskGradient1 = this.ctx.createLinearGradient(0, 0, 0, this.height() / 2);
-    maskGradient1.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    maskGradient1.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    this.ctx.fillStyle = maskGradient1;
-    this.ctx.fillRect(0, 0, this.width(), this.height() / 2);
-
-    // Large radial gradient to cut out the top center in an arc
-    const maskGradient2 = this.ctx.createRadialGradient(
-      (this.width() / 2), 0, 0,
-      (this.width() / 2), 0, (this.height() * 2),
-    );
-    maskGradient2.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    maskGradient2.addColorStop(1, 'rgba(255, 255, 255, 0)');
-    this.ctx.fillStyle = maskGradient2;
-    this.ctx.fillRect(0, 0, this.width(), this.height() * 2);
+    this.postRender(this);
   }
 
   /**
