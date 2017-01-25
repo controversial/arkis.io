@@ -172,7 +172,7 @@ class ParticleRenderer {
       this.ctx.clearRect(0, 0, this.width(), this.height());
       this.ctx.globalAlpha = 0.8;
       this.particles.forEach((p) => {
-        p.width = window.innerWidth / 3;
+        p.width = (window.innerWidth + window.innerHeight) / 6;
         p.height = p.width;
         const rotation = p.rot * (Math.PI / 180);
 
