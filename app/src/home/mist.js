@@ -161,6 +161,8 @@ class ParticleRenderer {
       // Random choice of the mist particle textures as an image
       randchoice(textures),
     ));
+
+    this.running = false;
   }
 
   /**
@@ -213,6 +215,7 @@ class ParticleRenderer {
    * Begin a run loop
    */
   start() {
+    this.running = true;
     this.step();
     requestAnimationFrame(() => this.draw());
     this.timeoutID = setTimeout(() => this.start(), 1000 / this.fps);
@@ -222,6 +225,7 @@ class ParticleRenderer {
    * Stop the run loop
    */
   stop() {
+    this.running = false;
     clearTimeout(this.timeoutID);
   }
 
