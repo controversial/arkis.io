@@ -17,20 +17,30 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 
 function postRender(renderer) {
   renderer.ctx.globalCompositeOperation = 'destination-out';
+  renderer.ctx.translate(renderer.width() / 2, renderer.height() / 2);
+  renderer.ctx.scale(1.1, 0.5);
   // Large radial gradient to cut out the center
-  const gradientSize = Math.max(renderer.width(), renderer.height()) * 1.5;
   const maskGradient = renderer.ctx.createRadialGradient(
-    (renderer.width() / 2), (renderer.height() / 2), 0,
-    (renderer.width() / 2), (renderer.height() / 2), gradientSize,
+    0, 0, 0,
+    0, 0, renderer.width() / 2,
   );
   maskGradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  maskGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.75)');
   maskGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
   renderer.ctx.fillStyle = maskGradient;
-  renderer.ctx.fillRect(0, 0, renderer.width(), renderer.height() * 2);
+  renderer.ctx.fillRect(
+    -renderer.width() / 2,
+    -renderer.height(),
+    renderer.width(),
+    renderer.height() * 2,
+  );
+  renderer.ctx.scale(1 / 1.1, 2);
+  renderer.ctx.translate(-(renderer.width() / 2), -(renderer.height() / 2));
 }
 
 /* eslint-enable no-param-reassign*/
 
 window.addEventListener('load', () => {
-  window.mistSim = new mist.ParticleRenderer(ctx, 85, 25, postRender);
+  window.mistSim = new mist.ParticleRenderer(ctx, 100, 25, postRender);
+  window.mistSim.start();
 });
