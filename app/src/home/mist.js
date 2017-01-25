@@ -169,9 +169,16 @@ class ParticleRenderer {
   draw() {
     this.ctx.globalCompositeOperation = 'source-over';
 
-    if (texturesLoaded) {
+    // In order to render,
+    if (
+      // 1. Image textures should be loaded
+      texturesLoaded
+      // 2. The canvas should not have display: none
+      && this.ctx.canvas.offsetParent != null
+    ) {
       this.ctx.clearRect(0, 0, this.width(), this.height());
       this.ctx.globalAlpha = 0.8;
+
       this.particles.forEach((p) => {
         p.width = (window.innerWidth + window.innerHeight) / 6;
         p.height = p.width;
@@ -189,11 +196,10 @@ class ParticleRenderer {
         this.ctx.rotate(-rotation);
         this.ctx.translate(-p.x, -p.y);
       });
+
+      this.ctx.globalAlpha = 1;
+      this.postRender(this);
     }
-
-    this.ctx.globalAlpha = 1;
-
-    this.postRender(this);
   }
 
   /**
