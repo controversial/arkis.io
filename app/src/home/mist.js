@@ -147,11 +147,12 @@ class ParticleRenderer {
     this.maxSpeed = maxSpeed || 4;
     this.postRender = postRender || (() => {});
 
+    const margin = (window.innerWidth + window.innerHeight) / 12;
     this.particles = new Array(this.particleCount).fill(0).map(() => new Particle(
       this,
       // X and Y position
-      random(0, this.width()),
-      random(0, this.height()),
+      random(-margin, this.width() + margin),
+      random(-margin, this.height() + margin),
       // X and Y velocity. Either positive or negative with a minimum speed of 0.5, max of maxSpeed
       randchoice([random(-this.maxSpeed, -0.5), random(0.5, this.maxSpeed)]),
       randchoice([random(-this.maxSpeed, -0.5), random(0.5, this.maxSpeed)]),
