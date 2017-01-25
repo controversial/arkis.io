@@ -9,8 +9,6 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
 
 
-/* eslint-disable no-param-reassign */
-
 // After smoke is drawn, create a fade by using blend modes to create gradient opacity masks.
 function postRender(renderer) {
   renderer.ctx.globalCompositeOperation = 'destination-out';
@@ -32,8 +30,6 @@ function postRender(renderer) {
   renderer.ctx.fillStyle = maskGradient2;
   renderer.ctx.fillRect(0, 0, renderer.width(), renderer.height() * 2);
 }
-
-/* eslint-enable no-param-reassign */
 
 
 // Initialize simulation

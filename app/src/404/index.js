@@ -13,7 +13,6 @@ window.addEventListener('resize', () => {
 });
 window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
 
-/* eslint-disable no-param-reassign*/
 
 function postRender(renderer) {
   renderer.ctx.globalCompositeOperation = 'destination-out';
@@ -37,7 +36,6 @@ function postRender(renderer) {
   renderer.ctx.translate(-(renderer.width() / 2), -(renderer.height() / 2));
 }
 
-/* eslint-enable no-param-reassign*/
 
 window.addEventListener('load', () => {
   window.mistSim = new mist.ParticleRenderer(ctx, 100, 25, 0.5, postRender);
