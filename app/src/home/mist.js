@@ -66,6 +66,7 @@ class Particle {
    * @param {number} vx - the initial X velocity of the particle
    * @param {number} vy - the initial Y velocity of the particle
    * @param {number} vrot - the initial rotational velocity of the particle (degrees)
+   * @param {Image} image - An image object for the mist particle texture
    */
   constructor(renderer, x, y, vx, vy, vrot, image) {
     this.renderer = renderer;
@@ -82,19 +83,25 @@ class Particle {
 
   /** Advance the simulation by one step */
   step() {
-    // Bounce particles when they hit the edges of the canvas
     const marginX = this.image.width / 2;
     const marginY = this.image.height / 2;
+
+    // Bounce particles when they hit the edges of the canvas
     if (this.x < -marginX || this.x >= this.renderer.width() + marginX) {
       this.bounceX();
     }
-    if (this.y < -1 * marginY || this.y >= this.renderer.height() + marginX) {
+    if (this.y < -marginY || this.y >= this.renderer.height() + marginY) {
       this.bounceY();
     }
 
+    // Stay in bounds (necessary when window resizes to be smaller)
+    this.reignIn();
+
+    // Move
     this.x += this.vx;
     this.y += this.vy;
 
+    // Rotate
     this.rot += this.vrot;
     this.rot %= 360;
   }
@@ -107,6 +114,18 @@ class Particle {
   /** Cause the current particle to bounce in the Y direction */
   bounceY() {
     this.vy = -1 * this.vy;
+  }
+
+  reignIn() {
+    const lowX = -(this.image.width / 2);
+    const lowY = -(this.image.height / 2);
+    const highX = this.renderer.width() + (this.image.width / 2);
+    const highY = this.renderer.height() + (this.image.height / 2);
+
+    if (this.x < lowX) { this.x = lowX; }
+    if (this.y < lowY) { this.y = lowY; }
+    if (this.x > highX) { this.x = highX; }
+    if (this.y > highY) { this.y = highY; }
   }
 }
 
