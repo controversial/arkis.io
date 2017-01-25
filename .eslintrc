@@ -5,6 +5,10 @@
   },
   "rules": {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/no-webpack-loader-syntax": "off",
     "global-require": "off"
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }
