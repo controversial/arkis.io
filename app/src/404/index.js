@@ -18,14 +18,13 @@ window.addEventListener('load', () => window.dispatchEvent(new Event('resize')))
 function postRender(renderer) {
   renderer.ctx.globalCompositeOperation = 'destination-out';
   renderer.ctx.translate(renderer.width() / 2, renderer.height() / 2);
-  renderer.ctx.scale(1.1, 0.5);
+  renderer.ctx.scale(1.25, 0.5);
   // Large radial gradient to cut out the center
   const maskGradient = renderer.ctx.createRadialGradient(
     0, 0, 0,
     0, 0, renderer.width() / 2,
   );
   maskGradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-  maskGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.75)');
   maskGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
   renderer.ctx.fillStyle = maskGradient;
   renderer.ctx.fillRect(
