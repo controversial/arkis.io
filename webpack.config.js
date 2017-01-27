@@ -16,6 +16,11 @@ module.exports = {
         test: /\.sass$/,
         loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
+      // CSS files
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader'],
+      },
       // JavaScript files
       {
         test: /\.js$/,
@@ -30,9 +35,9 @@ module.exports = {
       },
       // Files that require no compilation or processing
       {
-        test: /\.(ttf|woff|woff2|png)$/,
-        loader: 'file',
-        query: { name: '[path][name].[ext]', context: 'app/src' },
+        test: /\.(ttf|woff|woff2|eot|png|svg)/,
+        loader: 'url-loader',
+        query: { limit: 10000, name: '[path][name].[ext]', context: 'app/src' },
       },
     ],
   },

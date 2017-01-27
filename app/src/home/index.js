@@ -1,5 +1,6 @@
 // Styles
 require('./main.sass');
+require('../../../node_modules/ionicons/dist/css/ionicons.css');
 
 // Scripts
 require('./intro-animation/intro-anim.js');
