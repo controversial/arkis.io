@@ -1,9 +1,16 @@
 // Scroll effects for the page
 
 // Scroll distance at which the user has scrolled into the white section
-const threshold1 = window.innerWidth > window.innerHeight
-                      ? window.innerHeight * 1.25
-                      : window.innerHeight * 0.95;
+let isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
+let threshold1 = isMobile
+  ? window.innerHeight * 0.95
+  : window.innerHeight * 1.25;
+window.addEventListener('resize', () => {
+  isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
+  threshold1 = isMobile
+    ? window.innerHeight * 0.95
+    : window.innerHeight * 1.25;
+});
 
 
 // Top bar text changes from white to black after scrolling a certain amount
@@ -22,7 +29,6 @@ function adjustTopBar(scroll) {
 function headlineParallax(scroll) {
   requestAnimationFrame(() => {
     const headline = document.getElementsByClassName('headline')[0];
-    const isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
     headline.style.transform = !isMobile
       ? `translateY(calc( -50% - ${scroll / 50}vh ))`
       : `translate(-50%, calc( -50% - ${scroll / 50}vh))`;
