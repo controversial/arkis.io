@@ -22,7 +22,10 @@ function adjustTopBar(scroll) {
 function headlineParallax(scroll) {
   requestAnimationFrame(() => {
     const headline = document.getElementsByClassName('headline')[0];
-    headline.style.transform = `translateY(calc( -50% - ${scroll / 50}vh ))`;
+    const isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
+    headline.style.transform = !isMobile
+      ? `translateY(calc( -50% - ${scroll / 50}vh ))`
+      : `translate(-50%, calc( -50% - ${scroll / 50}vh))`;
   });
 }
 
