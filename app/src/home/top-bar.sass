@@ -83,21 +83,32 @@
         &:hover
           transform: scale(1.15)
 
-    button
-      border: 0
-      font-size: calc(15px + 2vh)
-      color: inherit
-      background: none
-      cursor: pointer
-
-      transition: .25s transform
-
-      &.open
-        transform: rotate(90deg)
-
 
 .top-bar.black
   color: $color-dark
 
   .right a::after
     background-color: $color-dark
+
+
+// This looks like it's part of the top bar but it can't be a child because it needs a z-index
+   higher than that of top-bar
+
+button.ion.ion-md-menu
+  position: fixed
+  z-index: 6
+  // Math™ was used to make this calc statement. This is the position of the button if it were in
+  // the .top-bar.right div
+  top: calc(29.5px - 1vh)
+  right: calc(29.5px - 1vh)
+
+  border: 0
+  font-size: calc(15px + 2vh)
+  color: inherit
+  background: none
+  cursor: pointer
+
+  transition: .25s transform
+
+  &.open
+    transform: rotate(90deg)
