@@ -6,6 +6,7 @@ require('../../../node_modules/ionicons/dist/css/ionicons.css');
 require('./intro-animation/intro-anim.js');
 require('./scroll.js');
 require('./mist-init.js');
+require('./mobile-menu.js');
 
 // Files to be copied
 require('./index.html');
