@@ -90,11 +90,14 @@
   .right a::after
     background-color: $color-dark
 
+  & ~ button.ion.ion-md-menu
+    color: $color-dark
+
 
 // This looks like it's part of the top bar but it can't be a child because it needs a z-index
    higher than that of top-bar
 
-// TODO: opacity and color fade effects
+// TODO: opacity transition
 button.ion.ion-md-menu
   position: fixed
   z-index: 6
@@ -105,11 +108,11 @@ button.ion.ion-md-menu
 
   border: 0
   font-size: calc(15px + 2vh)
-  color: inherit
+  color: $color-light
   background: none
   cursor: pointer
 
-  transition: .25s transform
+  transition: transform .25s, color .5s
 
   &.open
     transform: rotate(90deg)
