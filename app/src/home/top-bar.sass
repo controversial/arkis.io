@@ -13,9 +13,6 @@
   &.visible
     opacity: 1
 
-  @media (orientation: portrait) and (max-width: 420px)
-    padding: 10px 5vw 14px 25px
-
 
   .letter-logo
     font-family: 'Charis', 'Charter', serif
@@ -46,9 +43,6 @@
       text-transform: uppercase
       font-size: calc(6px + 1vh)
 
-      @media (orientation: portrait) and (max-width: 420px)
-        font-size: calc(10px + 2vw)
-
       margin-left: 3vw
 
       // Hover effect
@@ -76,15 +70,13 @@
         font-size: calc(15px + 2vh)
         transition: transform .2s
 
-        @media (orientation: portrait) and (max-width: 420px)
-          font-size: calc(20px + 2vw)
-
 
         &:hover
           transform: scale(1.15)
 
     button
       border: 0
+      outline: 0
       font-size: calc(15px + 2vh)
       color: inherit
       background: none
