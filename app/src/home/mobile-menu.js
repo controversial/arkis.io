@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.classList.toggle('open');
     menu.classList.toggle('open');
 
+    if (menu.classList.contains('open')) {
+      menu.style.display = 'block';
+    } else {
+      setTimeout(() => { menu.style.display = 'none'; }, 500);
+    }
+
     const menuLinks = menu.getElementsByTagName('a');
     for (let i = 0; i < menuLinks.length; i += 1) {
       setTimeout(
