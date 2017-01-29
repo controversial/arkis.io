@@ -81,10 +81,6 @@ section.white-section
     pointer-events: none
     -webkit-touch-callout: none
 
-    // This looks like shit in portrait, so hide it
-    @media (orientation: portrait)
-      display: none
-
 
   div.mist-gradient
     position: absolute
@@ -112,17 +108,8 @@ section.white-section
 
     background: linear-gradient($c1 0%, $c2 10%, $c3 20%, $c4 30%, $c5 40%, $c6 50%, $c7 60%, $c8 70%, $c9 80%, $c10 90%, $c11 100%)
 
-    @media (orientation: portrait)
-      position: static
-      height: 10vh
-      background: linear-gradient($c1, $c11)
-
 
   div.white
     background-color: $color-light
     width: 100vw
     height: 100vh
-
-
-  @media (orientation: portrait)
-    top: 90vh
