@@ -212,10 +212,13 @@ class ParticleRenderer {
       this.particles.forEach((p) => {
         p.width = 0;
         p.height = 0;
+        this.ctx.save();
+        this.ctx.translate(p.x, p.y);
+        this.ctx.rotate(p.rot * (Math.PI / 180));
         this.ctx.fillStyle = '#0f0';
-        this.ctx.beginPath();
-        this.ctx.arc(p.x, p.y, 10, 0, 2 * Math.PI);
-        this.ctx.fill();
+        this.ctx.fillRect(-20, -1, 40, 2);
+        this.ctx.fillRect(-1, -20, 2, 40);
+        this.ctx.restore();
       });
     }
   }
