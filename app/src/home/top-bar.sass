@@ -5,10 +5,10 @@
 
   color: $color-light
 
-  padding: 10px 6vw 14px 50px
+  padding: 10px 6vw 10px 50px
 
   opacity: 0
-  transition: opacity 1.5s, color .5s
+  transition: opacity 1.5s, color .5s, background-color .25s, box-shadow .5s
 
   &.visible
     opacity: 1
@@ -90,6 +90,8 @@
 
 .top-bar.black
   color: $color-dark
+  $shadow-color: rgba(0, 0, 0, .15)
+  box-shadow: 0 4px 4px 0 $shadow-color, 0 1px 8px 0 $shadow-color
 
   .right a::after
     background-color: $color-dark
