@@ -22,6 +22,7 @@
 <body ontouchstart="">
 
   <!-- Animated logo -->
+
   <div id="animated-logo">
     <div class="corners-container">
       <div class="corners-anim-container">
@@ -42,7 +43,11 @@
   </div>
 
 
+  <!-- Actual text content of the page -->
+
   <div id="content-main">
+
+    <!-- Top bar contains links to other pages -->
     <div class="top-bar" data-build-delay="0.1">
       <a class="letter-logo" href="/">A</a>
 
@@ -51,9 +56,12 @@
         <a class="desktop-only" href="">Products</a>
         <a class="desktop-only" href="">Contact</a>
         <a class="desktop-only" href="https://github.com/arkis" class="ion ion-logo-github"></a>
+        <!-- On mobile, all links are hidden except a menu icon for opening a fullscreen menu -->
         <button class="mobile-only ion ion-md-menu"></button>
       </div>
     </div>
+
+    <!-- Fullscreen menu for mobile devices -->
     <div class="mobile-menu mobile-only">
       <ul>
         <li><a href="">About</a></li>
@@ -63,14 +71,19 @@
       </ul>
     </div>
 
+    <!-- Central header (most prominent text on page) -->
     <h1 class="headline" data-build-delay="1">We are Arkis</h1>
 
+    <!-- The section with the smoke and everything below it -->
     <section class="white-section" data-build-delay="2">
+
       <canvas id="mist"></canvas>
       <div class="mist-gradient"></div>
 
       <div class="white">
         <h2 class="center">Our team</h2>
+
+        <!-- Information about the members of Arkis -->
         <div class="person-container">
           <div class="person-info">
             <img src="https://arkisio.now.sh/profile/1Defenestrator" alt="Luke Taylor">
@@ -117,8 +130,10 @@
             </a>
           </div>
         </div>
+
       </div>
 
+      <!-- A bit of info at the bottom -->
       <footer>
         <div class="left">
           <h5>Arkis</h5>
@@ -126,6 +141,7 @@
         </div>
         <div class="footer-logo">A</div>
       </footer>
+
     </section>
   </div>
 
