@@ -66,3 +66,29 @@
 
       &:last-child
         margin-right: 0
+
+
+  button
+    display: block
+
+    width: 20%
+    padding: .6em
+    margin: 2em auto 0
+    border: 0
+
+    background-color: $color-dark
+    color: $color-light
+
+    font-size: 1em
+    text-transform: uppercase
+    text-align: center
+
+    transition: transform .25s
+
+    transform: translateZ(0)
+
+    &:hover
+      transform: translateZ(0) scale(1.05)
+
+    &:active
+      transform: translateZ(0) scale(.95)
