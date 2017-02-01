@@ -1,94 +1,94 @@
 .contact
   position: relative
-  // Adjust margin for new relative positioning (this doesn't need to take up
-     as much space as it does since it's transformed upwards)
-  margin-bottom: -50vh
 
-  top: 0
-  left: 50vw
-  transform: translate(-50%, -80%)
+  .contact-form
+    position: absolute
 
-  width: 60vw
-  height: 60vh
+    top: 0
+    left: 50vw
+    transform: translate(-50%, -80%)
 
-  padding: 1% 5%
+    width: 60vw
+    height: 60vh
 
-  color: $color-dark
-  background-color: $color-light
+    padding: 1% 5%
 
-  border-radius: 5px
+    color: $color-dark
+    background-color: $color-light
 
-
-  $shadow-color: rgba(0, 0, 0, .16)
-
-  transition: box-shadow .25s
-  box-shadow: 0 8px 20px 0 $shadow-color, 0 8px 40px 0 $shadow-color
-
-  &:hover
-    box-shadow: 0 32px 68px 0 $shadow-color, 0 24px 80px 0 $shadow-color
+    border-radius: 5px
 
 
-  input
-    $unfocused-color: lighten($color-dark, 50)
-    display: block
-    width: 100%
+    $shadow-color: rgba(0, 0, 0, .16)
 
-    border: 0
-    outline: 0
-    border-bottom: .1em solid $unfocused-color
+    transition: box-shadow .25s
+    box-shadow: 0 8px 20px 0 $shadow-color, 0 8px 40px 0 $shadow-color
 
-    transition: border .25s
-
-    font-size: 1em
-    padding: .5em
-    margin-top: 0
-    margin-bottom: .75em
-
-    &:focus,
     &:hover
-      border-bottom: .1em solid $color-dark
+      box-shadow: 0 32px 68px 0 $shadow-color, 0 24px 80px 0 $shadow-color
 
-    &::placeholder
-      color: $unfocused-color
-      transition: color .25s
-
-    &:focus::placeholder
-        color: $color-dark
-
-
-  div
-    display: flex
 
     input
-      display: inline
-      margin-right: .75em
-      flex: 1
+      $unfocused-color: lighten($color-dark, 50)
+      display: block
+      width: 100%
 
-      &:last-child
-        margin-right: 0
+      border: 0
+      outline: 0
+      border-bottom: .1em solid $unfocused-color
+
+      transition: border .25s
+
+      font-size: 1em
+      padding: .5em
+      margin-top: 0
+      margin-bottom: .75em
+
+      &:focus,
+      &:hover
+        border-bottom: .1em solid $color-dark
+
+      &::placeholder
+        color: $unfocused-color
+        transition: color .25s
+
+      &:focus::placeholder
+          color: $color-dark
 
 
-  button
-    display: block
+    div
+      display: flex
 
-    width: 20%
-    padding: .6em
-    margin: 2em auto 0
-    border: 0
+      input
+        display: inline
+        margin-right: .75em
+        flex: 1
 
-    background-color: $color-dark
-    color: $color-light
+        &:last-child
+          margin-right: 0
 
-    font-size: 1em
-    text-transform: uppercase
-    text-align: center
 
-    transition: transform .25s
+    button
+      display: block
 
-    transform: translateZ(0)
+      width: 20%
+      padding: .6em
+      margin: 2em auto 0
+      border: 0
 
-    &:hover
-      transform: translateZ(0) scale(1.05)
+      background-color: $color-dark
+      color: $color-light
 
-    &:active
-      transform: translateZ(0) scale(.95)
+      font-size: 1em
+      text-transform: uppercase
+      text-align: center
+
+      transition: transform .25s
+
+      transform: translateZ(0)
+
+      &:hover
+        transform: translateZ(0) scale(1.05)
+
+      &:active
+        transform: translateZ(0) scale(.95)
