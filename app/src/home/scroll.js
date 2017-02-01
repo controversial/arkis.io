@@ -3,12 +3,10 @@
 // Scroll distance at which the user has scrolled into the white section
 let isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
 let threshold1 = window.innerHeight * 1.25;
-let threshold2 = window.innerHeight * 1.35;
 
 window.addEventListener('resize', () => {
   isMobile = window.innerWidth < window.innerHeight && window.window.innerWidth < 420;
   threshold1 = window.innerHeight * 1.25;
-  threshold2 = window.innerHeight * 1.35;
 });
 
 
@@ -21,12 +19,6 @@ function adjustTopBar(scroll) {
     topBar.classList.add('black');
   } else {
     topBar.classList.remove('black');
-  }
-
-  if (scroll > threshold2) {
-    topBar.style.backgroundColor = 'rgba(255, 255, 255, 1)';
-  } else {
-    topBar.style.backgroundColor = '';
   }
 }
 
