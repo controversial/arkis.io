@@ -26,3 +26,43 @@
 
   &:hover
     box-shadow: 0 32px 68px 0 $shadow-color, 0 24px 80px 0 $shadow-color
+
+
+  input
+    $unfocused-color: lighten($color-dark, 50)
+    display: block
+    width: 100%
+
+    border: 0
+    outline: 0
+    border-bottom: .1em solid $unfocused-color
+
+    transition: border .25s
+
+    font-size: 1em
+    padding: .5em
+    margin-top: 0
+    margin-bottom: .75em
+
+    &:focus,
+    &:hover
+      border-bottom: .1em solid $color-dark
+
+    &::placeholder
+      color: $unfocused-color
+      transition: color .25s
+
+    &:focus::placeholder
+        color: $color-dark
+
+
+  div
+    display: flex
+
+    input
+      display: inline
+      margin-right: .75em
+      flex: 1
+
+      &:last-child
+        margin-right: 0
