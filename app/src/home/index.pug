@@ -19,22 +19,7 @@ html
 
   body(ontouchstart='')
 
-    //- Animated logo (intro animation)
-    #animated-logo
-      .corners-container
-        .corners-anim-container
-          #corners
-            .row
-              .corner.top.left
-                div
-              .corner.top.right
-                div
-            .row
-              .corner.bottom.left
-                div
-              .corner.bottom.right
-                div
-      .letter-main A
+    include intro-animation/intro-anim.pug
 
     //- Actual content of the page
     #content-main
