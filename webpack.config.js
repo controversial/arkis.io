@@ -31,12 +31,19 @@ module.exports = {
       // Pug files
       {
         test: /\.pug$/,
-        loader: 'file-loader?name=[path][name].html&context=app/src!pug-html-loader?exports=false',
+        loaders: [
+          'file-loader?name=[path][name].html&context=app/src',
+          'pug-html-loader?exports=false',
+        ],
       },
       // HTML files
       {
         test: /\.html$/,
-        loader: 'file-loader?name=[path][name].html&context=app/src!extract-loader!html-loader',
+        loaders: [
+          'file-loader?name=[path][name].html&context=app/src',
+          'extract-loader',
+          'html-loader',
+        ],
       },
       // Files that require no compilation or processing
       {
