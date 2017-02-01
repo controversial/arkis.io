@@ -1,0 +1,28 @@
+.contact
+  position: relative
+  // Adjust margin for new relative positioning (this doesn't need to take up
+     as much space as it does since it's transformed upwards)
+  margin-bottom: -50vh
+
+  top: 0
+  left: 50vw
+  transform: translate(-50%, -80%)
+
+  width: 60vw
+  height: 60vh
+
+  padding: 1% 5%
+
+  color: $color-dark
+  background-color: $color-light
+
+  border-radius: 5px
+
+
+  $shadow-color: rgba(0, 0, 0, .16)
+
+  transition: box-shadow .25s
+  box-shadow: 0 8px 20px 0 $shadow-color, 0 8px 40px 0 $shadow-color
+
+  &:hover
+    box-shadow: 0 32px 68px 0 $shadow-color, 0 24px 80px 0 $shadow-color
