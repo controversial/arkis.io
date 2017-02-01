@@ -41,6 +41,8 @@
     "jsdoc-babel": "^0.3.0",
     "node-sass": "^4.2.0",
     "postcss-loader": "^1.2.2",
+    "pug": "^2.0.0-beta10",
+    "pug-html-loader": "^1.1.0",
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",

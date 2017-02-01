@@ -28,10 +28,15 @@ module.exports = {
         exclude: 'node_modules',
         query: { presets: ['es2015'] },
       },
+      // Pug files
+      {
+        test: /\.pug$/,
+        loader: 'file-loader?name=[path][name].html&context=app/src!pug-html-loader?exports=false',
+      },
       // HTML files
       {
         test: /\.html$/,
-        loader: 'file-loader?name=[path][name].[ext]&context=app/src!extract-loader!html-loader',
+        loader: 'file-loader?name=[path][name].html&context=app/src!extract-loader!html-loader',
       },
       // Files that require no compilation or processing
       {

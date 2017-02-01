@@ -1,0 +1,137 @@
+doctype html
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+
+    title Arkis
+
+    //- Google Analytics
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-72586531-6', 'auto');
+      ga('send', 'pageview');
+
+
+  body(ontouchstart='')
+
+    //- Animated logo (intro animation)
+    #animated-logo
+      .corners-container
+        .corners-anim-container
+          #corners
+            .row
+              .corner.top.left
+                div
+              .corner.top.right
+                div
+            .row
+              .corner.bottom.left
+                div
+              .corner.bottom.right
+                div
+      .letter-main A
+
+    //- Actual content of the page
+    #content-main
+
+      .top-bar(data-build-delay='0.1')
+        a.letter-logo(href='/') A
+        .right
+          a.desktop-only(href='') About
+          a.desktop-only(href='') Products
+          a.desktop-only(href='') Contact
+          a.desktop-only.ion.ion-logo-github(href='https://github.com/arkis')
+
+          //- On mobile, the only visible link is a button to open a fullscreen menu
+          button.mobile-only.ion.ion-md-menu
+
+      //- Fullscreen menu for mobile devices
+      .mobile-menu.mobile-only
+        ul
+          li
+            a(href='') About
+          li
+            a(href='') Products
+          li
+            a(href='') Contact
+          li
+            a(href='https://github.com/arkis')
+
+      h1.headline.center.caps(data-build-delay='1') We are Arkis
+
+      canvas#mist(data-build-delay='2')
+      .mist-gradient
+
+      //- "Our team" section containing info about the members of Arkis
+      section.team-section
+        h2.center.caps Our team
+        .cards-container
+          .member-info
+            img(src='https://arkisio.now.sh/profile/1Defenestrator' alt='Luke Taylor')
+            .name Luke Taylor
+            a(href='https://twitter.com/1Defenestrator')
+              span.handle @1Defenestrator
+              i.ion.ion-logo-twitter
+            a(href='https://github.com/controversial')
+              span.handle @controversial
+              i.ion.ion-logo-github
+
+          .member-info
+            img(src='https://arkisio.now.sh/profile/whitestmystery' alt='Isaac Cheruiyot')
+            .name Isaac Cheruiyot
+            a(href='https://twitter.com/whitestmystery')
+              span.handle @whitestmystery
+              i.ion.ion-logo-twitter
+            a(href='https://github.com/icykip')
+              span.handle @icykip
+              i.ion.ion-logo-github
+
+          .member-info
+            img(src='https://arkisio.now.sh/profile/conqueror1776' alt='Elijah Tamarchenko')
+            .name Elijah Tamarchenko
+            a(href='https://twitter.com/conqueror1776')
+              span.handle @conqueror1776
+              i.ion.ion-logo-twitter
+            a(href='https://github.com/conqueror1776')
+              span.handle @conqueror1776
+              i.ion.ion-logo-github
+
+          .member-info
+            img(src='https://arkisio.now.sh/profile/crimster123' alt='Luciano Crimi')
+            .name Luciano Crimi
+            a(href='https://twitter.com/crimster123')
+              span.handle @crimster123
+              i.ion.ion-logo-twitter
+            a(href='https://github.com/crimster123')
+              span.handle @crimster123
+              i.ion.ion-logo-github
+
+      //- Map showing where we are roughly
+      section#map
+
+      //- "Contact us" form
+      section.contact
+        form.contact-form
+          h4.center.caps Contact
+          div
+            input(type='text' placeholder='First')
+            input(type='text' placeholder='Last')
+            input(type='email' placeholder='Email')
+          input(type='text' placeholder='Subject')
+          input(type='text' placeholder='Message')
+          button Send
+
+      //- A bit of info at the bottom
+      footer
+        .left
+          h5 Arkis
+          span.copyright Copyright &copy; 2017 Arkis
+        .footer-logo A
+
+  //- Literally everything because webpack
+  script(src='home/index.js')
