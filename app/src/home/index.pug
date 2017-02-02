@@ -1,3 +1,28 @@
+-
+  const members = [
+    {
+      name: 'Luke Taylor',
+      twitter: '1Defenestrator',
+      github: 'controversial',
+    },
+    {
+      name: 'Isaac Cheruiyot',
+      twitter: 'whitestmystery',
+      github: 'icykip',
+    },
+    {
+      name: 'Elijah Tamarchenko',
+      twitter: 'conqueror1776',
+      github: 'conqueror1776',
+    },
+    {
+      name: 'Luciano Crimi',
+      twitter: 'crimster123',
+      github: 'crimster123'
+    },
+  ]
+
+
 doctype html
 
 html
@@ -56,45 +81,16 @@ html
       section.team-section
         h2.center.caps Our team
         .cards-container
-          .member-info
-            img(src='https://arkisio.now.sh/profile/1Defenestrator', alt='Luke Taylor')
-            .name Luke Taylor
-            a(href='https://twitter.com/1Defenestrator')
-              span.handle @1Defenestrator
-              i.ion.ion-logo-twitter
-            a(href='https://github.com/controversial')
-              span.handle @controversial
-              i.ion.ion-logo-github
-
-          .member-info
-            img(src='https://arkisio.now.sh/profile/whitestmystery', alt='Isaac Cheruiyot')
-            .name Isaac Cheruiyot
-            a(href='https://twitter.com/whitestmystery')
-              span.handle @whitestmystery
-              i.ion.ion-logo-twitter
-            a(href='https://github.com/icykip')
-              span.handle @icykip
-              i.ion.ion-logo-github
-
-          .member-info
-            img(src='https://arkisio.now.sh/profile/conqueror1776', alt='Elijah Tamarchenko')
-            .name Elijah Tamarchenko
-            a(href='https://twitter.com/conqueror1776')
-              span.handle @conqueror1776
-              i.ion.ion-logo-twitter
-            a(href='https://github.com/conqueror1776')
-              span.handle @conqueror1776
-              i.ion.ion-logo-github
-
-          .member-info
-            img(src='https://arkisio.now.sh/profile/crimster123', alt='Luciano Crimi')
-            .name Luciano Crimi
-            a(href='https://twitter.com/crimster123')
-              span.handle @crimster123
-              i.ion.ion-logo-twitter
-            a(href='https://github.com/crimster123')
-              span.handle @crimster123
-              i.ion.ion-logo-github
+          each member in members
+            .member-info
+              img(src=`https://arkisio.now.sh/profile/${member.twitter}`, alt=member.name)
+              .name= member.name
+              a(href=`https://twitter.com/${member.twitter}`)
+                span.handle= `@${member.twitter}`
+                i.ion.ion-logo-twitter
+              a(href=`https://github.com/${member.github}`)
+                span.handle= `@${member.github}`
+                i.ion.ion-logo-github
 
       //- Map showing where we are roughly
       section#map
