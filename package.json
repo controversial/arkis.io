@@ -54,6 +54,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "ionicons": "^3.0.0"
+    "ionicons": "^3.0.0",
+    "jump.js": "^1.0.2"
   }
 }

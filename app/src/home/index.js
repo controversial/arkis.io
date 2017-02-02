@@ -3,6 +3,7 @@ require('./main.sass');
 
 // Libraries
 require('../../../node_modules/ionicons/dist/css/ionicons.css'); // Ionicons
+require('../../../node_modules/jump.js/dist/jump');
 
 // Scripts
 require('./intro-animation/intro-anim.js');
