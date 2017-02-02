@@ -1,4 +1,4 @@
-const mist = require('./mist.js');
+const mist = require('./mist');
 
 // Adjust canvas size on window resize
 window.addEventListener('resize', () => {

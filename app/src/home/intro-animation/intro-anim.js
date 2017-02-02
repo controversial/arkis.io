@@ -1,5 +1,5 @@
 require('./intro-anim.sass');
-const cascadeFadeIn = require('../build.js');
+const cascadeFadeIn = require('../build');
 
 const isTouchDevice = 'ontouchstart' in document.documentElement;
 const ev = isTouchDevice ? 'touchend' : 'click';
