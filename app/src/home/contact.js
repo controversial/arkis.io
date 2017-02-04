@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // The <form> element
-  const contactForm = document.getElementById('contact-form');
+  const contactForm = document.forms['contact-form'];
   // The button in the <form> element
   const formSubmitButton = document.getElementById('contact-form-submit');
 
