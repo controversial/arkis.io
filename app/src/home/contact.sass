@@ -119,7 +119,7 @@
 
 
     .normal-form-content
-      transition: opacity .5s
+      transition: opacity .25s
 
     .spinner
       width: 50px
@@ -140,6 +140,12 @@
 
       .normal-form-content
         opacity: 0
+
+    &.succeeded,
+    &.failed
+      .normal-form-content
+        opacity: 0
+        display: none
 
 @keyframes shake
   0%
