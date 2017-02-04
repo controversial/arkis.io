@@ -31,6 +31,8 @@ function submit() {
 
   // Make sure everything is valid
   if (contactForm.getElementsByClassName('invalid').length === 0) {
+    // Display loading
+    contactForm.classList.add('loading');
     // Read URL and HTTP method from the attributes on the <form> element
     const submitURL = contactForm.getAttribute('action');
     const submitMethod = contactForm.getAttribute('method');

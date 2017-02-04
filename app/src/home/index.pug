@@ -98,16 +98,19 @@ html(lang='en')
 
       //- "Contact us" form
       section.contact
-        form#contact-form(action='https://arkisio.now.sh/contact', method='POST')
-          h4.center.caps Contact
-          div
-            input(type='text', name='firstName', placeholder='First')
-            input(type='text', name='lastName', placeholder='Last')
-            input(type='email', name='email', placeholder='Email')
-          input(type='text', name='message', placeholder='Message')
+        form#contact-form(action='https://arkisio.now.sh/contactt', method='POST')
+          .normal-form-content
+            h4.center.caps Contact
+            div.inline-inputs
+              input(type='text', name='firstName', placeholder='First')
+              input(type='text', name='lastName', placeholder='Last')
+              input(type='email', name='email', placeholder='Email')
+            input(type='text', name='message', placeholder='Message')
 
-          .button-container
-            button#contact-form-submit(type='button') Send
+            .button-container
+              button#contact-form-submit(type='button') Send
+
+          .spinner
 
       //- A bit of info at the bottom
       footer

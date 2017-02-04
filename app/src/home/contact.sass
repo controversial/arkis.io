@@ -1,3 +1,5 @@
+@import spinner
+
 .contact
   position: relative
 
@@ -21,7 +23,7 @@
 
     $shadow-color: rgba(0, 0, 0, .16)
 
-    transition: box-shadow .25s
+    transition: box-shadow .25s, color .5s, background-color .5s
     box-shadow: 0 8px 20px 0 $shadow-color, 0 8px 40px 0 $shadow-color
 
     &:hover
@@ -75,7 +77,7 @@
             color: $invalid-form-text
 
 
-    div
+    div.inline-inputs
       display: flex
 
       input
@@ -115,6 +117,29 @@
     .button-container.shake
       animation: shake .5s
 
+
+    .normal-form-content
+      transition: opacity .5s
+
+    .spinner
+      width: 50px
+      height: 50px
+      position: absolute
+      top: calc(50% - 25px)
+      left: calc(50% - 25px)
+
+      opacity: 0
+      transition: .5s opacity
+
+    &.loading
+      background-color: $color-dark
+      color: $color-light
+
+      .spinner
+        opacity: 1
+
+      .normal-form-content
+        opacity: 0
 
 @keyframes shake
   0%
