@@ -44,9 +44,9 @@ function submit() {
       .then(response => response.text())
       .then((body) => {
         if (body === 'true') { // Email sent successfully
-          contactForm.innerHTML = 'Success :D';
+          contactForm.classList.add('succeeded');
         } else { // Email failed to send
-          contactForm.innerHTML = 'Failure :/';
+          contactForm.classList.add('failed');
         }
       });
   } else {
