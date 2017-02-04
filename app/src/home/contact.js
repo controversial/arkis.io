@@ -22,6 +22,20 @@ function submit() {
     });
 }
 
+function validate(input) {
+  // Returns true if `value` is empty or contains only whitespace
+  function isEmpty(value) {
+    return value.trim().length === 0;
+  }
+  // Returns true if `value` roughly matches the format something@something.something
+  function isEmail(value) {
+    return /\S+@\S+\.\S+/.test(value);
+  }
+
+  if (input.getAttribute('type') === 'text') return !isEmpty(input.value);
+  else if (input.getAttribute('type') === 'email') return isEmail(input.value);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // The button in the <form> element
   const formSubmitButton = document.getElementById('contact-form-submit');
