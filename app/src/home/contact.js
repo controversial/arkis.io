@@ -34,10 +34,15 @@ function validate(input) {
 
   if (input.getAttribute('type') === 'text') return !isEmpty(input.value);
   else if (input.getAttribute('type') === 'email') return isEmail(input.value);
+  return true;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // The button in the <form> element
+  // Submit when the button in the <form> element is clicked
   const formSubmitButton = document.getElementById('contact-form-submit');
   formSubmitButton.addEventListener('click', submit);
+  // Validate each input when it's typed in
+  // TODO: visual feedback
+  const contactForm = document.forms['contact-form'];
+  contactForm.addEventListener('input', (e) => { console.log(validate(e.target)); });
 });
