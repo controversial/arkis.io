@@ -45,6 +45,7 @@ function submit() {
     fetch(submitURL, { method: submitMethod, body: data })
       .then(response => response.text())
       .then((body) => {
+        contactForm.classList.remove('loading');
         if (body === 'true') { // Email sent successfully
           contactForm.classList.add('succeeded');
         } else { // Email failed to send
