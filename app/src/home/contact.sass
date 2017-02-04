@@ -38,7 +38,7 @@
       outline: 0
       border-bottom: .1em solid $unfocused-color
 
-      transition: border .25s
+      transition: border .25s, background-color .25s, color .25s
 
       font-size: 1em
       padding: .5em
@@ -55,6 +55,24 @@
 
       &:focus::placeholder
           color: $color-dark
+
+      &.invalid
+        $invalid-form-background: #ffebee
+        $invalid-form-text: #ff4436
+
+        border-bottom: .1em solid $invalid-form-text
+        color: $invalid-form-text
+        background-color: $invalid-form-background
+
+        &:focus,
+        &:hover
+          border-bottom: .1em solid $invalid-form-text
+
+        &::placeholder
+          color: $invalid-form-text
+
+        &:focus::placeholder
+            color: $invalid-form-text
 
 
     div
