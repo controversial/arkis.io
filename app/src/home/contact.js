@@ -44,5 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Validate each input when it's typed in
   // TODO: visual feedback
   const contactForm = document.forms['contact-form'];
-  contactForm.addEventListener('input', (e) => { console.log(validate(e.target)); });
+  contactForm.addEventListener('input', (e) => {
+    const valid = validate(e.target);
+    if (!valid) e.target.classList.add('invalid');
+    else e.target.classList.remove('invalid');
+  });
 });
