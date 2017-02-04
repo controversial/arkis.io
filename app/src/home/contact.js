@@ -49,6 +49,10 @@ function submit() {
           contactForm.innerHTML = 'Failure :/';
         }
       });
+  } else {
+    const buttonContainer = contactForm.getElementsByClassName('button-container')[0];
+    setTimeout(() => buttonContainer.classList.add('shake'), 250);
+    setTimeout(() => buttonContainer.classList.remove('shake'), 750);
   }
 }
 
