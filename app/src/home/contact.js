@@ -34,8 +34,15 @@ function submit() {
     // Display loading
     contactForm.classList.add('loading');
     // Read URL and HTTP method from the attributes on the <form> element
-    const submitURL = contactForm.getAttribute('action');
+    let submitURL = contactForm.getAttribute('action');
     const submitMethod = contactForm.getAttribute('method');
+
+    // Debugging
+    if (window.location.search === '?nopost-true') {
+      submitURL = 'https://arkisio.now.sh/contact-dummy-true';
+    } else if (window.location.search === '?nopost-false') {
+      submitURL = 'https://arkisio.now.sh/contact-dummy-true';
+    }
 
     // Read data from the form for easy POSTing
     const data = new FormData(contactForm);
