@@ -101,10 +101,10 @@ html(lang='en')
         form.contact-form(action='https://arkisio.now.sh/contact')
           h4.center.caps Contact
           div
-            input(type='text', placeholder='First')
-            input(type='text', placeholder='Last')
-            input(type='email', placeholder='Email')
-          input(type='text', placeholder='Message')
+            input(type='text', name='firstName', placeholder='First')
+            input(type='text', name='lastName', placeholder='Last')
+            input(type='email', name='email', placeholder='Email')
+          input(type='text', name='message', placeholder='Message')
           button Send
 
       //- A bit of info at the bottom
