@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
   const formSubmitButton = document.getElementById('contact-form-submit');
   formSubmitButton.addEventListener('click', () => {
-    fetch('https://arkisio.now.sh/contact', {
-      method: 'POST',
+    fetch(contactForm.getAttribute('action'), {
+      method: contactForm.getAttribute('method'),
       body: new FormData(contactForm),
     }).then(response => response.text()).then((body) => {
       if (body === 'true') {
