@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "ionicons": "^3.0.0",
-    "jump.js": "^1.0.2"
+    "jump.js": "^1.0.2",
+    "promise-polyfill": "^6.0.2",
+    "whatwg-fetch": "^2.0.2"
   }
 }

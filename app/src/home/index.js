@@ -1,6 +1,10 @@
 // Styles
 require('./main.sass');
 
+// Polyfills
+require('../../../node_modules/promise-polyfill');
+require('../../../node_modules/whatwg-fetch');
+
 // Libraries
 require('../../../node_modules/ionicons/dist/css/ionicons.css'); // Ionicons
 require('../../../node_modules/jump.js/dist/jump');
