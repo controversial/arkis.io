@@ -14,6 +14,7 @@ require('./intro-animation/intro-anim');
 require('./scroll');
 require('./mist-init');
 require('./mobile-menu');
+require('./contact');
 
 // Files to be copied
 require('./index.pug');
