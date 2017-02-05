@@ -75,4 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Validate each input when it's typed in
   const contactForm = document.forms['contact-form'];
   contactForm.addEventListener('input', e => updateValidity(e.target));
+
+  const inputs = contactForm.getElementsByTagName('input');
+  for (let i = 0; i < inputs.length; i += 1) {
+    inputs[i].addEventListener('keydown', (e) => {
+      if (e.keyCode === 13 || e.which === 13 || e.code === 13) submit();
+    });
+  }
 });
