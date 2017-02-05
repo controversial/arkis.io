@@ -41,7 +41,7 @@ function submit() {
     if (window.location.search === '?nopost-true') {
       submitURL = 'https://arkisio.now.sh/contact-dummy-true';
     } else if (window.location.search === '?nopost-false') {
-      submitURL = 'https://arkisio.now.sh/contact-dummy-true';
+      submitURL = 'https://arkisio.now.sh/contact-dummy-false';
     }
 
     // Read data from the form for easy POSTing
