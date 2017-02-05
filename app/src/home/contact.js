@@ -53,6 +53,7 @@ function submit() {
       .then(response => response.text())
       .then((body) => {
         contactForm.classList.remove('loading');
+        contactForm.classList.add('completed');
         if (body === 'true') { // Email sent successfully
           contactForm.classList.add('succeeded');
         } else { // Email failed to send
