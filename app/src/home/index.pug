@@ -99,6 +99,7 @@ html(lang='en')
       //- "Contact us" form
       section.contact
         form#contact-form(action='https://arkisio.now.sh/contact', method='POST')
+          //- Standard view of the form (as a form)
           .normal-form-content
             h4.center.caps Contact
             .inline-inputs
@@ -110,6 +111,15 @@ html(lang='en')
             .button-container
               button#contact-form-submit(type='button') Send
 
+          //- View when message sends successfully
+          .success
+            h4.center.caps Message sent!
+
+          //- View when message fails to send
+          .failure
+            h4.center.caps Message failed to send
+
+          //- Loading indicator as message fate is unknown
           .spinner
 
       //- A bit of info at the bottom
