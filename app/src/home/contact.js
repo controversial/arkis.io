@@ -38,10 +38,10 @@ function submit() {
     const submitMethod = contactForm.getAttribute('method');
 
     // Debugging
-    if (window.location.search === '?nopost-true') {
-      submitURL = 'https://arkisio.now.sh/contact-dummy-true';
-    } else if (window.location.search === '?nopost-false') {
-      submitURL = 'https://arkisio.now.sh/contact-dummy-false';
+    if (window.location.search === '?nopost=true') {
+      submitURL = 'https://arkisio.now.sh/dummy?response=true&delay=3000';
+    } else if (window.location.search === '?nopost=false') {
+      submitURL = 'https://arkisio.now.sh/dummy?response=false&delay=3000';
     }
 
     // Read data from the form for easy POSTing
