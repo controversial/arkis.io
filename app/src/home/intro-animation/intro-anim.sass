@@ -15,10 +15,7 @@
   position: absolute
   top: 50vh
   left: 50vw
-  font-size: 50vh
-
-  @media (orientation: portrait)
-    font-size: 50vw
+  font-size: 50vmin
 
   transform: translate(-50%, -52.5%)
 
@@ -59,11 +56,8 @@
       .corner
         display: inline-block
 
-        width: 15vh
-        height: 15vh
-        @media (orientation: portrait)
-          width: 15vw
-          height: 15vw
+        width: 15vmin
+        height: 15vmin
 
         opacity: 0
 
@@ -76,62 +70,32 @@
 
         // Landscape browser window
 
-        $corner-stroke-width-landscape: 2vh
-        $corner-distance-landscape: 25vh
+        $corner-stroke-width: 2vmin
+        $corner-distance: 25vmin
 
         &.top
-          margin-bottom: $corner-distance-landscape / 2
+          margin-bottom: $corner-distance / 2
 
           div
-            border-top: $corner-stroke-width-landscape solid $color-light
+            border-top: $corner-stroke-width solid $color-light
 
         &.right
-          margin-left: $corner-distance-landscape / 2
+          margin-left: $corner-distance / 2
 
           div
-            border-right: $corner-stroke-width-landscape solid $color-light
+            border-right: $corner-stroke-width solid $color-light
 
         &.bottom
-          margin-top: $corner-distance-landscape / 2
+          margin-top: $corner-distance / 2
 
           div
-            border-bottom: $corner-stroke-width-landscape solid $color-light
+            border-bottom: $corner-stroke-width solid $color-light
 
         &.left
-          margin-right: $corner-distance-landscape / 2
+          margin-right: $corner-distance / 2
 
           div
-            border-left: $corner-stroke-width-landscape solid $color-light
-
-        // Portrait browser window
-
-        $corner-stroke-width-portrait: 2vw
-        $corner-distance-portrait: 25vw
-
-        @media (orientation: portrait)
-          &.top
-            margin-bottom: $corner-distance-portrait / 2
-
-            div
-              border-top: $corner-stroke-width-portrait solid $color-light
-
-          &.right
-            margin-left: $corner-distance-portrait / 2
-
-            div
-              border-right: $corner-stroke-width-portrait solid $color-light
-
-          &.bottom
-            margin-top: $corner-distance-portrait / 2
-
-            div
-              border-bottom: $corner-stroke-width-portrait solid $color-light
-
-          &.left
-            margin-right: $corner-distance-portrait / 2
-
-            div
-              border-left: $corner-stroke-width-portrait solid $color-light
+            border-left: $corner-stroke-width solid $color-light
 
 
         // Define corner build animations
