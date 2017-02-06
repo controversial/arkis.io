@@ -75,7 +75,7 @@ h5
   position: fixed
   left: 0
   top: 50vh
-  z-index: -1
+  z-index: 1
   transform: translateY(-50%)
 
   @media (orientation: portrait) and (max-width: 420px)
@@ -93,6 +93,11 @@ h5
 
   &.visible
     opacity: 1
+
+  // All subsequent elements should be on top. This can be overridden if needed
+  & ~ *
+    position: relative
+    z-index: 2
 
 
 canvas
