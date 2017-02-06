@@ -9,6 +9,11 @@ $color-light: #fff
 *::after
   box-sizing: border-box
 
+html
+  font-size: 23px
+  font-size: calc(8px + 1vw)
+  font-size: calc(8px + 1vmax)
+
 body
   background-color: $color-dark
   color: $color-light
@@ -45,22 +50,22 @@ h5
 
 
 h1
-  font-size: 6vw
+  font-size: 4rem
 
 h2
-  font-size: 5vw
+  font-size: 3rem
 
 h3
-  font-size: 4vw
+  font-size: 2.5rem
 
 h4
-  font-size: 3vw
+  font-size: 2rem
 
 h5
-  font-size: 2vw
+  font-size: 1.8rem
 
 .headline
-  font-size: 7vw
+  font-size: 4.5rem
   letter-spacing: .1vw
 
   display: block
@@ -74,7 +79,7 @@ h5
   transform: translateY(-50%)
 
   @media (orientation: portrait) and (max-width: 420px)
-    font-size: 25vw
+    font-size: 6rem
     text-align: left
     width: auto
     left: 50vw
