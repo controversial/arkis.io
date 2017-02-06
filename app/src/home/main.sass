@@ -112,17 +112,6 @@ canvas
   pointer-events: none
   -webkit-touch-callout: none
 
-  // Pre-build properties: transparent and not transformed into view.
-  transform: translateY(40vh)
-  opacity: 0
-
-  // During the build, the clouds will slide up and fade in
-  transition: transform 3s, opacity 4s
-
-  &.visible
-    opacity: 1
-    transform: none
-
 div.mist-gradient
   position: absolute
   display: block
@@ -148,3 +137,16 @@ div.mist-gradient
   $c11: transparentize($color-light,   0)
 
   background: linear-gradient($c1 0%, $c2 10%, $c3 20%, $c4 30%, $c5 40%, $c6 50%, $c7 60%, $c8 70%, $c9 80%, $c10 90%, $c11 100%)
+
+canvas,
+div.mist-gradient
+  // Pre-build properties: transparent and not transformed into view.
+  transform: translateY(40vh)
+  opacity: 0
+
+  // During the build, the clouds will slide up and fade in
+  transition: transform 3s, opacity 4s
+
+  &.visible
+    opacity: 1
+    transform: none
