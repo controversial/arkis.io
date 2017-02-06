@@ -1,3 +1,4 @@
 app/build/*
 docs/*
 **/*.pug
+.c9/*

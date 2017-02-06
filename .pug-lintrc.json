@@ -1,5 +1,9 @@
 {
   "extends": "clock",
   "disallowIdLiterals": null,
-  "disallowMultipleLineBreaks": null
+  "disallowMultipleLineBreaks": null,
+  "excludeFiles": [
+    "node_modules/**",
+    ".c9/**"
+  ]
 }
