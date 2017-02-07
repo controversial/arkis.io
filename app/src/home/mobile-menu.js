@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   menuButton.addEventListener('click', () => {
     menuButton.classList.toggle('open');
     menu.classList.toggle('open');
+    document.getElementsByClassName('top-bar')[0].classList.toggle('mobile-menu-open');
 
     if (menu.classList.contains('open')) {
       menu.style.display = 'block';
