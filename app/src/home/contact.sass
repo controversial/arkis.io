@@ -127,6 +127,14 @@
       &:active
         transform: translateZ(0) scale(.95)
 
+      @media (orientation: portrait) and (max-width: 420px)
+        width: 100%
+        font-size: 1.1em
+
+        & > span
+          display: none
+
+
     .button-container.shake
       animation: shake .5s
 

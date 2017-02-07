@@ -109,7 +109,9 @@ html(lang='en')
             input(type='text', name='message', placeholder='Message', autocomplete='off')
 
             .button-container
-              button#contact-form-submit(type='button') Send your message
+              button#contact-form-submit(type='button') Send
+                //- This is wrapped in a span so that it can be hidden on mobile to abbreviate button text
+                span &nbsp;your message
 
           //- Provides a backdrop for the result of the submission
           .result-background
