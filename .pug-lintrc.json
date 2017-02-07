@@ -2,6 +2,8 @@
   "extends": "clock",
   "disallowIdLiterals": null,
   "disallowMultipleLineBreaks": null,
+  "requireClassLiteralsBeforeIdLiterals": null,
+  "disallowClassLiteralsBeforeIdLiterals": true,
   "excludeFiles": [
     "node_modules/**",
     ".c9/**"
