@@ -23,6 +23,18 @@ function adjustTopBar(scroll) {
 }
 
 
+// Mobile menu color changes with top bar color
+function adjustMobileMenu(scroll) {
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (scroll > threshold1) {
+    mobileMenu.classList.add('opaque');
+  } else {
+    mobileMenu.classList.remove('opaque');
+  }
+}
+
+
 function headlineParallax(scroll) {
   requestAnimationFrame(() => {
     const headline = document.getElementsByClassName('headline')[0];
@@ -49,6 +61,7 @@ function adjustAnimationPlayState(scroll) {
 function scrollHandler() {
   const scroll = window.scrollY;
   adjustTopBar(scroll);
+  adjustMobileMenu(scroll);
   headlineParallax(scroll);
   adjustAnimationPlayState(scroll);
 }

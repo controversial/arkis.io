@@ -1,6 +1,6 @@
 @import './main.sass'
 
-.mobile-menu
+#mobile-menu
   position: fixed
   top: 0
   left: 0
@@ -9,13 +9,13 @@
   z-index: 4
 
   -webkit-backdrop-filter: blur(10px)
-  background: transparentize($color-dark, .25)
+  background-color: transparentize($color-dark, .25)
 
   padding: 84px 10px 10px
   padding: calc(68px + 2vh) 5vw 0
 
   opacity: 0
-  transition: opacity .5s
+  transition: opacity .5s, background-color .5s
 
   display: none // Initial value
 
@@ -40,7 +40,13 @@
         font-size: 1.3rem
 
         opacity: 0
-        transition: opacity 1.5s
+        transition: opacity 1.5s, color .5s
 
         &.visible
           opacity: 1
+
+  &.opaque
+    background-color: $color-light
+
+    a
+      color: $color-dark
