@@ -145,6 +145,14 @@
       opacity: 0
       transition: .5s opacity
 
+      @media (orientation: portrait) and (max-width: 420px)
+        $size: 5vh
+        width: $size
+        height: $size
+        top: calc(50% - #{ $size / 2 })
+        left: calc(50% - #{ $size / 2 })
+
+
     .result-background
       background-color: $color-light
 
@@ -162,6 +170,10 @@
 
       transform: translate(-50%, -50%) scale(.02)
       transition: .5s opacity, .5s transform cubic-bezier(.77, 0, .175, 1)
+
+      @media (orientation: portrait) and (max-width: 420px)
+        transform: translate(-50%, -50%) scale(.04)
+
 
     .success,
     .failure
