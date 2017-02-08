@@ -23,6 +23,7 @@ setTimeout(() => {
     setTimeout(() => {
       logo.style.display = 'none';
       cascadeFadeIn();
+      window.map.resize();
     }, 1000);
   }, delay));
 }, 3750);
