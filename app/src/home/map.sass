@@ -4,12 +4,22 @@
   height: 66vh
 
   // Temportary
-  background-color: lighten($color-dark, 75)
-
-  canvas
-    width: 100%
-    height: 100%
+  background-image: url('https://api.mapbox.com/styles/v1/controversial/ciyvz3bls00222rmu39mll67r/static/-74.085000,41.746000,12.25,71.50,60.00/1000x1000@2x?access_token=pk.eyJ1IjoiY29udHJvdmVyc2lhbCIsImEiOiJjaXMwaXEwYjUwM2l6MnpwOHdodTh6Y24xIn0.JOD0uX_n_KXqhJ7ERnK0Lg&attribution=false')
+  background-repeat: no-repeat
+  background-position: center
+  background-attachment: fixed
+  background-size: cover
 
   // Make contact form almost completely transparent when map is hovered
   &:hover ~ .contact
     opacity: .1
+
+.map-attribution
+  font-size: .5rem
+  margin: .1rem .5rem
+  position: absolute
+  top: 0
+  right: 0
+
+  a
+    color: $color-light

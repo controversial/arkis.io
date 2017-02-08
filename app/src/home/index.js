@@ -15,7 +15,6 @@ require('./scroll');
 require('./mist-init');
 require('./mobile-menu');
 require('./contact');
-require('./map');
 
 // Files to be copied
 require('./index.pug');
