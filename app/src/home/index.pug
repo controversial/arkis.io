@@ -51,11 +51,11 @@ html(lang='en')
     #content-main
 
       .top-bar(data-build-delay='0.1')
-        a.letter-logo(href='/') A
+        a.letter-logo(href='#', onclick='jumpToTop()') A
         .right
-          a.desktop-only(href='') Team
-          a.desktop-only(href='') Products
-          a.desktop-only(href='') Contact
+          a.desktop-only(href='#', onclick='jumpToTeam()') Team
+          a.desktop-only(href='/products') Products
+          a.desktop-only(href='#', onclick='jumpToContact()') Contact
           a.desktop-only.ion.ion-logo-github(href='https://github.com/arkis')
 
           //- On mobile, the only visible link is a button to open a fullscreen menu
@@ -65,11 +65,11 @@ html(lang='en')
       #mobile-menu.mobile-only
         ul
           li
-            a(href='') Team
+            a(href='#', onclick='jumpToTeam()') Team
           li
-            a(href='') Products
+            a(href='/products') Products
           li
-            a(href='') Contact
+            a(href='#', onclick='jumpToTeam()') Contact
           li
             a(href='https://github.com/arkis') Github
 
