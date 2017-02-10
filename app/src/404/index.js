@@ -1,4 +1,4 @@
-require('./index.html');
+require('./index.pug');
 require('./main.sass');
 
 const mist = require('../home/mist.js');
