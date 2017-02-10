@@ -1,15 +1,6 @@
-$black: #000
-$white: #fff
-
-@import '../home/fonts.sass'
-
-
-*
-  box-sizing: border-box
+@import '../styles'
 
 body
-  background-color: $black
-  margin: 0
   position: fixed
 
 h1
@@ -20,12 +11,9 @@ h1
   margin: 0
   width: 100vw
   line-height: 100vh
-  text-align: center
-
   font-size: 10vw
-  color: $white
-  font-family: 'Montserrat'
-  text-transform: uppercase
+
+  color: $color-light
 
 canvas
   position: absolute
@@ -38,4 +26,4 @@ canvas
   left: 0
   width: 100vw
   height: 100vh
-  box-shadow: inset 0 0 25vmin 10vmin $black
+  box-shadow: inset 0 0 25vmin 10vmin $color-dark

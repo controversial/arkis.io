@@ -1,0 +1,54 @@
+// Styles shared among all pages
+
+@import fonts
+@import responsive-classes
+
+$color-dark: #000
+$color-light: #fff
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+html
+  font-size: 23px
+  font-size: calc(8px + 1vw)
+  font-size: calc(8px + 1vmax)
+
+body
+  background-color: $color-dark
+  color: $color-light
+  margin: 0
+
+
+h1,
+h2,
+h3,
+h4,
+h5
+  font-family: 'Montserrat'
+  font-weight: bold
+  margin: .5em 0
+
+  &.center
+    text-align: center
+
+  &.caps
+    text-transform: uppercase
+
+
+h1
+  font-size: 4rem
+
+h2
+  font-size: 3rem
+
+h3
+  font-size: 2.5rem
+
+h4
+  font-size: 2rem
+
+h5
+  font-size: 1.8rem
