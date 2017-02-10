@@ -1,4 +1,9 @@
-const jump = require('../../../node_modules/jump.js/dist/jump');
+const jump1 = require('../../../node_modules/jump.js/dist/jump');
+
+function jump(a, b) {
+  window.mobileMenu.close();
+  return jump1(a, b);
+}
 
 let topBar;
 
