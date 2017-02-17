@@ -1,12 +1,13 @@
 const mist = require('./mist');
 
 // Adjust canvas size on window resize
-window.addEventListener('resize', () => {
+function resize() {
   const canvas = document.getElementById('mist');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight * 0.8;
-});
-window.addEventListener('load', () => window.dispatchEvent(new Event('resize')));
+}
+window.addEventListener('resize', resize);
+window.addEventListener('load', resize);
 
 
 // After smoke is drawn, create a fade by using blend modes to create gradient opacity masks.
