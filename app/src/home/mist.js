@@ -36,7 +36,7 @@ for (let i = 0; i < textures.length; i += 1) {
 // My [].fill polyfill
 if (!Array.prototype.fill) {
   /* eslint-disable no-extend-native */
-  Array.prototype.fill = (value) => {
+  Array.prototype.fill = function fill(value) {
     for (let i = 0; i < this.length; i += 1) {
       this[i] = value;
     }
