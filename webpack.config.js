@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -17,12 +18,12 @@ module.exports = {
       // SASS files
       {
         test: /\.sass$/,
-        loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        loader: ExtractTextWebpackPlugin.extract(['css-loader', 'postcss-loader', 'sass-loader']),
       },
       // CSS files
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader'],
+        loader: ExtractTextWebpackPlugin.extract(['css-loader', 'postcss-loader']),
       },
       // JavaScript files
       {
@@ -66,6 +67,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({ minimize: true, compress: { warnings: false } }),
     new CopyWebpackPlugin([{ from: 'app/favicons' }]),
+    new ExtractTextWebpackPlugin('[name]/style.css'),
   ],
 
 
