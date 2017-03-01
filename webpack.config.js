@@ -65,7 +65,6 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({ minimize: true, compress: { warnings: false } }),
     new CopyWebpackPlugin([{ from: 'app/favicons' }]),
     new ExtractTextWebpackPlugin('[name]/style.css'),
   ],
@@ -78,3 +77,23 @@ module.exports = {
     contentBase: path.join(__dirname, 'app/build'),
   },
 };
+
+// Custom settings for production
+// detected when building in a path that begins with '/var/www'
+if (__dirname.startsWith('/var/www')) {
+  console.log('Production detected');
+  module.exports.plugins = module.exports.plugins.concat([
+    // Minify JS
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false,
+      },
+    }),
+    // Let all loaders know they can minimize output
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+  ]);
+}
+
