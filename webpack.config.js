@@ -4,8 +4,6 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
 module.exports = {
   entry: {
     // These names MUST match the folder name within app/src so that the JS bundle doesn't end up in
@@ -70,8 +68,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({ minimize: true, compress: { warnings: false } }),
     new CopyWebpackPlugin([{ from: 'app/favicons' }]),
     new ExtractTextWebpackPlugin('[name]/style.css'),
-
-    new DashboardPlugin(),
   ],
 
 
