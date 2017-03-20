@@ -50,22 +50,40 @@
 
       position: relative
 
-      &:not(.ion)::after
-        content: ''
-        width: 100%
-        height: 1.5px
-        position: absolute
-        left: 0
-        bottom: -.25em
-        background-color: $color-light
-        transform: scaleX(0)
-        transform-origin: bottom right
-        transition: transform .4s cubic-bezier(.215, .61, .355, 1), background-color .5s
-
-      &:not(.ion):hover
+      &:not(.ion)
+        &::before,
         &::after
-          transform: scaleX(1)
-          transform-origin: bottom left
+          content: ''
+          position: absolute
+          width: .4rem
+          height: .4rem
+          opacity: 0
+          transition: .33s transform, .33s opacity
+
+        &::before
+          bottom: 0
+          left: 0
+          border-left: .1rem solid $color-light
+          border-bottom: .1rem solid $color-light
+          transform: translate(25%, -25%) scale(.75)
+
+        &::after
+          top: 0
+          right: 0
+          border-top: .1rem solid $color-light
+          border-right: .1rem solid $color-light
+          transform: translate(-25%, 25%) scale(.75)
+
+        &:hover
+          &::before,
+          &::after
+            opacity: 1
+
+          &::before
+            transform: translate(-100%, 25%)
+
+          &::after
+            transform: translate(100%, -25%)
 
       &.ion
         font-size: 1.5em
