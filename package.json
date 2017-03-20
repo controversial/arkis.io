@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Website for Arkis",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --inline --open",
     "c9-serve": "webpack-dev-server --host $IP --port $PORT",
     "build": "webpack",
     "watch": "webpack --watch",
