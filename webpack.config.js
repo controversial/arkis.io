@@ -97,3 +97,9 @@ if (__dirname.startsWith('/var/www')) {
   ]);
 }
 
+if (process.env.C9_HOSTNAME) {
+  console.log('Detected Cloud9');
+  console.log(`Preview at ${process.env.C9_HOSTNAME}/home`);
+  module.exports.devServer.port = process.env.PORT;
+  module.exports.devServer.host = process.env.IP;
+}
