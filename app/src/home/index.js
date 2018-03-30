@@ -15,6 +15,7 @@ require('./mist-init');
 require('./mobile-menu');
 require('./contact');
 require('./nav-links');
+require('./copyright');
 
 // Files to be copied
 require('./index.pug');
