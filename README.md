@@ -1,5 +1,5 @@
 # arkis.io
-Website for Arkis, a project development I briefly formed with friends from high school
+Website for Arkis, a project development group I briefly formed with friends from high school
 
 This website is now defunct, however pieces of the front-end development work I did are live on my CodePen:
 
